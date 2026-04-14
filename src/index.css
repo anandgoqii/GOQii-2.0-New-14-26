@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+  
+  --color-primary: #10B981;
+  --color-primary-dark: #059669;
+  --color-primary-light: #D1FAE5;
+  --color-accent-teal: #06B6D4;
+  --color-accent-blue: #2563EB;
+  
+  --color-text-main: #0F172A;
+  --color-text-muted: #5F6C7B;
+  
+  --color-bg-main: #FFFFFF;
+  --color-bg-light: #F8FAFC;
+  --color-bg-warm: #F0FDFA;
+  
+  --color-dark-bg: #0B1220;
+  --color-dark-card: #111827;
+  
+  --color-border-base: #E2E8F0;
+}
+
+/* Enable class-based dark mode for Tailwind 4 utilities */
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-primary: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #5f6c7b;
+    --border-color: #e2e8f0;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --card-bg: #ffffff;
+    --primary: #10B981;
+    --primary-dark: #059669;
+    --primary-light: #D1FAE5;
+    --accent-teal: #06B6D4;
+    --accent-blue: #2563EB;
+    --bg-warm: #F0FDFA;
+    --gradient-main: linear-gradient(90deg, #10B981, #06B6D4, #2563EB);
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg-primary: #0b1220;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(11, 18, 32, 0.7);
+    --card-bg: #111827;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  body {
+    @apply antialiased overflow-x-hidden;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    color: var(--text-primary);
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  h1 {
+    @apply text-[36px] md:text-[48px] font-semibold leading-[1.2] mb-6;
+    color: var(--text-primary);
+  }
+
+  h2 {
+    @apply text-[24px] md:text-[28px] font-semibold mb-4;
+    color: var(--text-primary);
+  }
+
+  h3 {
+    @apply text-[18px] md:text-[20px] font-medium mb-3;
+    color: var(--text-primary);
+  }
+
+  p {
+    @apply text-[16px] leading-[1.6] mb-4;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+
+  .dark p {
+    color: var(--text-secondary);
+  }
+
+  .small {
+    @apply text-[12px] md:text-[13px] text-[#8A94A6];
+  }
+
+  .hero-title {
+    @apply text-[42px] md:text-[52px] font-semibold leading-[1.1] mb-6;
+  }
+
+  .hero-subtext {
+    @apply text-[16px] md:text-[18px] max-w-[600px] leading-[1.6];
+    color: var(--text-secondary);
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  button, 
+  .btn,
+  [role="button"] {
+    @apply text-[14px] font-medium tracking-[0.2px];
+    cursor: pointer;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-white;
+  }
+
+  /* Global Popup Styles */
+  .popup-overlay {
+    @apply fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-0;
+  }
+
+  .popup-wrapper {
+    @apply fixed inset-0 flex items-center justify-center z-[120] p-4 pointer-events-none;
+  }
+
+  .popup-container {
+    @apply bg-white dark:bg-dark-card rounded-[3rem] overflow-hidden shadow-2xl pointer-events-auto relative z-10 border border-border-base dark:border-white/10;
+  }
+
+  .popup-close {
+    @apply absolute top-6 right-6 w-12 h-12 bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full flex items-center justify-center text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 z-30 shadow-lg border border-white/20;
+  }
+
+  .popup-image-section {
+    @apply w-full md:w-[45%] relative min-h-[400px] md:min-h-0 bg-slate-100 dark:bg-slate-900;
+  }
+
+  .popup-content-section {
+    @apply w-full md:w-[55%] p-8 md:p-16 overflow-y-auto bg-white dark:bg-dark-card;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  }
+  
+  .bg-glass {
+    @apply backdrop-blur-lg border;
+    background-color: var(--glass-bg);
+    border-color: var(--border-color);
+  }
+
+  .bg-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .button-primary {
+    @apply text-white transition-all duration-300;
+    background: linear-gradient(90deg, #10B981, #06B6D4);
+    border-radius: 999px;
+  }
+
+  .button-primary:hover {
+    background: linear-gradient(90deg, #059669, #0891B2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #10B981, #06B6D4, #2563EB);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .section-warm {
+    background-color: var(--bg-warm);
+  }
+
+  .icon-primary {
+    @apply text-primary;
+  }
+
+  .icon-alt {
+    @apply text-accent-teal;
+  }
+
+  .toggle-btn {
+    @apply bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-all duration-300;
+  }
+
+  .toggle-btn.active {
+    @apply text-white border-transparent;
+    background: linear-gradient(90deg, #10B981, #06B6D4);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
