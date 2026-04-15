@@ -117,24 +117,31 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
       className="relative min-h-screen flex flex-col justify-center overflow-hidden w-full bg-white dark:bg-slate-950 transition-colors duration-500 pt-20 md:pt-0"
     >
       {/* Background Images with Crossfade */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
+      <div className="absolute inset-0 z-0 bg-slate-100 dark:bg-slate-900">
+        <AnimatePresence>
           <motion.div
             key={isMobile ? slide.mobileImage : slide.image}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            className="absolute inset-0"
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className={`absolute inset-0 overflow-hidden ${isMobile ? 'opacity-70' : ''}`}
           >
-            <img 
+            <motion.img 
+              initial={{ scale: 1.1 }}
+              animate={{ scale: isMobile ? 1 : 1.05 }}
+              transition={{ duration: 10, ease: "linear" }}
               src={isMobile ? slide.mobileImage : slide.image} 
               alt={slide.id} 
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover ${isMobile ? 'object-right' : ''}`}
               referrerPolicy="no-referrer"
             />
-            {/* Gradient Overlays - Brighter and cleaner */}
+            {/* Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/20 to-transparent dark:from-slate-950/80 dark:via-slate-950/40" />
+            
+            {isMobile && (
+              <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white" />
+            )}
             
             {/* Enhanced mobile vignette for 1st and 2nd slides to improve dark text readability */}
             {isMobile && (currentSlide === 0 || currentSlide === 1) && (
@@ -147,18 +154,26 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
       </div>
 
       <div className="relative z-10 px-6 max-w-7xl mx-auto w-full">
-        <div className="max-w-3xl">
+        <div className={`max-w-3xl ${isMobile ? 'mx-auto text-center' : ''}`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: isMobile ? 0 : -20, y: isMobile ? 20 : 0 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              exit={{ opacity: 0, x: isMobile ? 0 : 20, y: isMobile ? -20 : 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="flex flex-col gap-4 md:gap-6"
+              drag={isMobile ? "x" : false}
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={(_, info) => {
+                if (isMobile) {
+                  if (info.offset.x < -50) nextSlide();
+                  if (info.offset.x > 50) prevSlide();
+                }
+              }}
             >
-              {/* Badge Row (Only on Slide 1) */}
-              {slide.showExtras && (
+              {/* Badge Row (Only on Slide 1 and Desktop) */}
+              {slide.showExtras && !isMobile && (
                 <div className="flex flex-wrap items-center gap-4 mb-1 md:mb-2">
                   <span className="px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">
                     THE OPERATING SYSTEM FOR HUMAN LONGEVITY
@@ -166,20 +181,30 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                 </div>
               )}
 
-              <h1 className={`hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white text-[32px] sm:text-[42px] md:text-[52px] ${
+              <h1 className={`hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white ${
+                isMobile 
+                  ? 'text-[34px] font-semibold leading-[1.1] tracking-[-0.5px]' 
+                  : 'text-[42px] sm:text-[42px] md:text-[52px]'
+              } ${
                 isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]' : ''
               }`}>
                 {slide.title}
               </h1>
 
-              <p className={`hero-subtext leading-relaxed max-w-2xl text-slate-600 dark:text-slate-300 text-sm md:text-base lg:text-lg ${
+              <p className={`hero-subtext leading-relaxed max-w-2xl text-slate-600 dark:text-slate-300 ${
+                isMobile 
+                  ? 'text-[15px] text-[#64748B] line-clamp-2 mx-auto' 
+                  : 'text-sm md:text-base lg:text-lg'
+              } ${
                 isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_1px_5px_rgba(255,255,255,0.5)]' : ''
               }`}>
-                {slide.subtext}
+                {isMobile && currentSlide === 0 
+                  ? 'AI-powered preventive healthcare for individuals and enterprises.' 
+                  : slide.subtext}
               </p>
 
-              {/* Audience Selector (Only on Slide 1) */}
-              {slide.showExtras && (
+              {/* Audience Selector (Only on Slide 1 and Desktop) */}
+              {slide.showExtras && !isMobile && (
                 <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mt-1 md:mt-2">
                   {AUDIENCES.map((audience) => (
                     <button
@@ -201,13 +226,15 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
               )}
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mt-4">
+              <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 ${isMobile ? 'mt-5 w-full' : 'mt-4'}`}>
                 {slide.primaryCTA.isDemo ? (
                   <button 
                     onClick={openDemoModal}
-                    className="px-5 py-2.5 button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 min-w-[140px] justify-center text-xs"
+                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
+                    }`}
                   >
-                    <span>Request {selectedAudience === 'Individuals' ? 'Access' : 'a Demo'}</span>
+                    <span>{isMobile ? 'Request Access' : `Request ${selectedAudience === 'Individuals' ? 'Access' : 'a Demo'}`}</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 ) : slide.primaryCTA.link?.startsWith('http') ? (
@@ -215,7 +242,9 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                     href={slide.primaryCTA.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 min-w-[140px] justify-center text-xs"
+                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
+                    }`}
                   >
                     {slide.primaryCTA.label}
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -223,7 +252,9 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                 ) : slide.primaryCTA.link?.startsWith('#') ? (
                   <button 
                     onClick={() => handleHashClick(slide.primaryCTA.link!, slide.id)}
-                    className="px-5 py-2.5 button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 min-w-[140px] justify-center text-xs"
+                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
+                    }`}
                   >
                     {slide.primaryCTA.label}
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -231,14 +262,16 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                 ) : (
                   <Link 
                     to={slide.primaryCTA.link || '#'}
-                    className="px-5 py-2.5 button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 min-w-[140px] justify-center text-xs"
+                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
+                    }`}
                   >
                     {slide.primaryCTA.label}
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 )}
                 
-                {slide.secondaryCTA && (
+                {slide.secondaryCTA && !isMobile && (
                   slide.showExtras ? (
                     <a 
                       href={AUDIENCE_LINKS[selectedAudience]}
@@ -264,10 +297,20 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                     </Link>
                   )
                 )}
+
+                {isMobile && (
+                  <motion.div
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="text-[12px] text-[#94A3B8] mt-4 mx-auto font-medium"
+                  >
+                    ↓ Swipe to explore
+                  </motion.div>
+                )}
               </div>
 
-              {/* Proof & Trust (Only on Slide 1) */}
-              {slide.showExtras && (
+              {/* Proof & Trust (Only on Slide 1 and Desktop) */}
+              {slide.showExtras && !isMobile && (
                 <div className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-8">
                   <div className="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-2 text-slate-500 dark:text-slate-400 font-medium text-xs md:text-sm">
                     <span>5M+ Lives Covered</span>
@@ -307,20 +350,22 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
           ))}
         </div>
         
-        <div className="flex items-center gap-2">
-          <button 
-            onClick={prevSlide}
-            className="p-1.5 md:p-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
-          >
-            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="p-1.5 md:p-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
-          >
-            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-          </button>
-        </div>
+        {!isMobile && (
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={prevSlide}
+              className="p-1.5 md:p-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
+            >
+              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+            <button 
+              onClick={nextSlide}
+              className="p-1.5 md:p-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
+            >
+              <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
