@@ -160,7 +160,7 @@ export const Home = () => {
     <main ref={mainRef} className="relative">
       <div id="hero" className="snap-section">
         <div className="parallax-bg bg-gradient-to-b from-primary/10 to-transparent" />
-        <Hero />
+        <Hero onPathSelect={handlePathChange} />
       </div>
       
       <div id="theshift" className="snap-section">
