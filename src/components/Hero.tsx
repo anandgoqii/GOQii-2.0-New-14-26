@@ -22,6 +22,7 @@ const SLIDES = [
     primaryCTA: { label: 'Request a Demo', isDemo: true },
     secondaryCTA: { label: 'Explore Solutions', link: '#path-selector' },
     image: 'https://appcdn.goqii.com/user/storeimg/45521_1775718820.jpg',
+    mobileImage: 'https://appcdn.goqii.com/storeimg/79625_1776249991.jpg',
     showExtras: true
   },
   {
@@ -30,6 +31,7 @@ const SLIDES = [
     subtext: 'Combining genomics, digital twins, and continuous coaching to deliver measurable health improvements.',
     primaryCTA: { label: 'Explore Sanjeevini', link: 'https://goqii.com/sanjeevini' },
     image: 'https://appcdn.goqii.com/storeimg/92550_1776244708.jpg',
+    mobileImage: 'https://appcdn.goqii.com/storeimg/41592_1776250055.jpg',
     showExtras: false
   },
   {
@@ -38,6 +40,7 @@ const SLIDES = [
     subtext: 'Reduce healthcare costs by up to 40% through proactive prevention and employee well-being.',
     primaryCTA: { label: 'For Business', link: '#path-selector' },
     image: 'https://appcdn.goqii.com/storeimg/7747_1776245741.jpg',
+    mobileImage: 'https://appcdn.goqii.com/storeimg/10180_1776250115.jpg',
     showExtras: false
   },
   {
@@ -46,6 +49,7 @@ const SLIDES = [
     subtext: 'Personalized AI coaching and wearable integration tailored to your unique biology.',
     primaryCTA: { label: 'Start Your Journey', link: '#path-selector' },
     image: 'https://appcdn.goqii.com/storeimg/57121_1776245812.jpg',
+    mobileImage: 'https://appcdn.goqii.com/storeimg/69660_1776250316.jpg',
     showExtras: false
   }
 ];
@@ -54,6 +58,16 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
   const { openDemoModal } = useModals();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedAudience, setSelectedAudience] = useState('Insurance');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
@@ -106,7 +120,7 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
-            key={slide.image}
+            key={isMobile ? slide.mobileImage : slide.image}
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -114,13 +128,19 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
             className="absolute inset-0"
           >
             <img 
-              src={slide.image} 
+              src={isMobile ? slide.mobileImage : slide.image} 
               alt={slide.id} 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
             {/* Gradient Overlays - Brighter and cleaner */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/20 to-transparent dark:from-slate-950/80 dark:via-slate-950/40" />
+            
+            {/* Enhanced mobile vignette for 1st and 2nd slides to improve dark text readability */}
+            {isMobile && (currentSlide === 0 || currentSlide === 1) && (
+              <div className="absolute inset-0 bg-white/60 dark:bg-slate-950/40 backdrop-blur-[2px] pointer-events-none" />
+            )}
+            
             <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent dark:from-slate-950/20" />
           </motion.div>
         </AnimatePresence>
@@ -146,11 +166,15 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                 </div>
               )}
 
-              <h1 className="hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white text-[32px] sm:text-[42px] md:text-[52px]">
+              <h1 className={`hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white text-[32px] sm:text-[42px] md:text-[52px] ${
+                isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]' : ''
+              }`}>
                 {slide.title}
               </h1>
 
-              <p className="hero-subtext leading-relaxed max-w-2xl text-slate-600 dark:text-slate-300 text-sm md:text-base lg:text-lg">
+              <p className={`hero-subtext leading-relaxed max-w-2xl text-slate-600 dark:text-slate-300 text-sm md:text-base lg:text-lg ${
+                isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_1px_5px_rgba(255,255,255,0.5)]' : ''
+              }`}>
                 {slide.subtext}
               </p>
 
