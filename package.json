@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && shx cp public/robots.txt dist/ && shx cp public/sitemap.xml dist/ && shx cp public/llms.txt dist/",
+    "build": "vite build && copyfiles -u 1 public/robots.txt public/sitemap.xml public/llms.txt dist",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
@@ -33,6 +33,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/serve-static": "^2.2.0",
     "autoprefixer": "^10.4.21",
+    "copyfiles": "^2.4.1",
     "shx": "^0.4.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
