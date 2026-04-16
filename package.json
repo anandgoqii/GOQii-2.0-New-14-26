@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && cp -r public/* dist/",
+    "build": "vite build && cp public/robots.txt dist/ && cp public/sitemap.xml dist/ && cp public/llms.txt dist/",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
