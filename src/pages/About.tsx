@@ -48,9 +48,9 @@ export const About = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.5 }}
           >
-            <p className="small font-bold uppercase tracking-widest text-primary mb-4">Our Story</p>
+            <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">Our Story</p>
             <h2 className="font-display font-bold text-slate-900 dark:text-white mb-8">A Mission to Redefine Healthcare</h2>
-            <div className="space-y-6 text-slate-600 dark:text-slate-400 font-light leading-relaxed">
+            <div className="space-y-6 text-slate-600 dark:text-slate-400 font-light leading-relaxed mx-auto">
               <p>
                 Founded in 2014 by visionary entrepreneur Vishal Gondal, GOQii has been at the forefront of transforming preventive healthcare on a global scale.
               </p>
@@ -72,7 +72,7 @@ export const About = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="small font-bold uppercase tracking-widest text-primary mb-4">What We Do</p>
+            <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">What We Do</p>
             <h2 className="font-display font-bold text-slate-900 dark:text-white mb-6">A Complete Health Platform</h2>
             <p className="text-slate-600 dark:text-slate-400 font-light max-w-3xl mx-auto">
               GOQii is a comprehensive digital health and wellness solution that integrates healthcare, fitness, and chronic disease management into one seamless experience.
@@ -155,8 +155,8 @@ export const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="small font-bold uppercase tracking-widest text-primary mb-4">Our Ecosystem</p>
-            <h2 className="font-display font-bold mb-8">A Smart Preventive Health Ecosystem</h2>
+            <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">Our Ecosystem</p>
+            <h2 className="font-display font-bold mb-8 text-white">A Smart Preventive Health Ecosystem</h2>
             <p className="text-slate-300 font-light max-w-3xl mx-auto mb-16">
               GOQii’s platform connects devices, data, AI, and human coaching into a unified system that delivers measurable health outcomes.
             </p>
@@ -195,7 +195,7 @@ export const About = () => {
             transition={{ duration: 1 }}
             className="text-center mb-16"
           >
-            <p className="small font-bold uppercase tracking-widest text-primary mb-4">Global Presence</p>
+            <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">Global Presence</p>
             <h2 className="font-display font-bold text-slate-900 dark:text-white mb-6">Built in Silicon Valley. Scaled Globally.</h2>
             <p className="text-slate-600 dark:text-slate-400 font-light max-w-3xl mx-auto">
               Headquartered in Menlo Park, California, with offices in Mumbai, India and UK.
@@ -279,7 +279,7 @@ export const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="small font-bold uppercase tracking-widest text-primary mb-4">Our Impact</p>
+            <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">Our Impact</p>
             <h2 className="font-display font-bold text-slate-900 dark:text-white mb-6">Driving Health Outcomes at Scale</h2>
             <p className="text-slate-600 dark:text-slate-400 font-light max-w-3xl mx-auto">
               GOQii has empowered millions of users to take control of their health and has contributed to building healthier communities globally.
@@ -317,9 +317,9 @@ export const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="small font-bold uppercase tracking-widest text-primary mb-4">Our Approach</p>
+            <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">Our Approach</p>
             <h2 className="font-display font-bold text-slate-900 dark:text-white mb-8">From Data to Behavior Change</h2>
-            <p className="text-slate-700 dark:text-slate-300 font-light mb-12">
+            <p className="text-slate-700 dark:text-slate-300 font-light mb-12 mx-auto">
               GOQii focuses on the most critical gap in healthcare:<br/>
               <span className="font-bold text-primary">Turning insights into sustained action.</span>
             </p>
@@ -355,9 +355,9 @@ export const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
           >
-            <p className="small font-bold uppercase tracking-widest text-primary mb-6">Our Vision</p>
-            <h2 className="font-display font-bold mb-8">The Future of Preventive Healthcare</h2>
-            <p className="font-light text-slate-300 mb-12">
+            <p className="small font-bold uppercase tracking-widest text-primary mb-6 mx-auto">Our Vision</p>
+            <h2 className="font-display font-bold mb-8 text-white">The Future of Preventive Healthcare</h2>
+            <p className="font-light text-slate-300 mb-12 mx-auto">
               We believe healthcare should not begin when illness occurs.<br/>
               It should be continuous, personalized, and proactive.
             </p>
@@ -387,9 +387,9 @@ export const About = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <p className="small font-bold uppercase tracking-widest opacity-60 mb-4">Our Movement</p>
+            <p className="small font-bold uppercase tracking-widest opacity-60 mb-4 mx-auto">Our Movement</p>
             <h2 className="font-display font-bold mb-8 text-slate-900">Be The Force</h2>
-            <p className="font-medium mb-8 opacity-80">
+            <p className="font-medium mb-8 opacity-80 mx-auto">
               GOQii is more than a platform—it is a movement.
             </p>
             <p className="text-xl font-medium max-w-2xl mx-auto leading-relaxed opacity-90">

@@ -217,7 +217,7 @@ export const ForBusiness = () => {
       <section className="py-24 px-4 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="font-display mb-6">Measurable Business Impact</h2>
+            <h2 className="font-display mb-6 text-white">Measurable Business Impact</h2>
             <p className="text-slate-400 max-w-2xl mx-auto">
               Our platform is built to deliver hard clinical and financial outcomes for our partners.
             </p>

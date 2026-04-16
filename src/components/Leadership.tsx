@@ -118,8 +118,49 @@ const ADVISORS = [
   { name: "Deepak I. Shahdadpuri", image: "https://websitecdn.goqii.com/images/profileimg/investor_deepak.png" }
 ];
 
+const LONGEVITY_COUNCIL = [
+  { 
+    name: "Prof. Anurag Agrawal", 
+    role: "Genomics & Precision Medicine", 
+    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", // Placeholder
+    bio: "Former Director, CSIR-IGIB; Dean, Ashoka University. A global authority in genomics and precision medicine."
+  },
+  { 
+    name: "Dr. Aashish Contractor", 
+    role: "Cardiology & Rehabilitation", 
+    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", // Placeholder
+    bio: "Leading expert in cardiac rehab and preventive cardiology. Known for his work in scaling cardiac rehabilitation programs."
+  },
+  { 
+    name: "Dr. Nirmal Punjabi", 
+    role: "Clinical Research", 
+    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", // Placeholder
+    bio: "Specialist in metabolic health and clinical trial validation. Expert in designing and validating clinical protocols."
+  }
+];
+
+const TABS = [
+  { id: 'leadership', label: 'Leadership' },
+  { id: 'board', label: 'Board of Directors' },
+  { id: 'advisory', label: 'Advisory Board' },
+  { id: 'longevity', label: 'Longevity Council' }
+];
+
 export const Leadership = () => {
-  const [selectedLeader, setSelectedLeader] = useState<typeof LEADERSHIP[0] | null>(null);
+  const [activeTab, setActiveTab] = useState('leadership');
+  const [selectedLeader, setSelectedLeader] = useState<any | null>(null);
+
+  const getActiveData = () => {
+    switch (activeTab) {
+      case 'leadership': return LEADERSHIP;
+      case 'board': return BOARD;
+      case 'advisory': return ADVISORS;
+      case 'longevity': return LONGEVITY_COUNCIL;
+      default: return LEADERSHIP;
+    }
+  };
+
+  const activeData = getActiveData();
 
   return (
     <section className="relative px-4 bg-[var(--bg-primary)] transition-colors duration-300 w-full">
@@ -130,102 +171,98 @@ export const Leadership = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-24"
+          className="text-center mb-16"
         >
-          <p className="small font-bold uppercase tracking-widest text-primary mb-4">Leadership</p>
+          <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">Leadership</p>
           <h2 className="font-display font-bold text-slate-900 dark:text-white mb-6">Built by Experts. Trusted Globally.</h2>
           <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed">
             GOQii is led by a team with deep expertise in healthcare, technology, and behavioral science.
           </p>
         </motion.div>
 
-        {/* SECTION — LEADERSHIP TEAM */}
-        <div className="mb-24" id="leadership">
-          <motion.h4 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-2xl font-display font-bold text-slate-900 dark:text-white mb-10 border-b border-slate-200 dark:border-slate-800 pb-4"
-          >
-            Leadership
-          </motion.h4>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {LEADERSHIP.map((leader, idx) => (
-              <motion.div
-                key={idx}
-                layoutId={`card-${leader.name}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                onClick={() => setSelectedLeader(leader)}
-                className="group cursor-pointer"
-              >
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden mb-4 relative shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-200/50 dark:border-slate-800">
-                  <motion.img 
-                    layoutId={`image-${leader.name}`}
-                    src={leader.image} 
-                    alt={leader.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <motion.h5 layoutId={`card-name-${leader.name}`} className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                  {leader.name}
-                </motion.h5>
-                <motion.p layoutId={`card-role-${leader.name}`} className="text-slate-500 dark:text-slate-400 text-sm font-medium">
-                  {leader.role}
-                </motion.p>
-              </motion.div>
-            ))}
-          </div>
+        {/* TABS NAVIGATION */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {TABS.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-8 py-3 rounded-full text-sm font-bold tracking-tight transition-all duration-300 ${
+                activeTab === tab.id
+                  ? 'bg-primary text-white shadow-lg shadow-primary/30 scale-105'
+                  : 'bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/10'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
-        {/* SECTION — BOARD OF DIRECTORS */}
-        <div className="mb-24">
-          <motion.h4 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-2xl font-display font-bold text-slate-900 dark:text-white mb-10 border-b border-slate-200 dark:border-slate-800 pb-4"
-          >
-            Board of Directors
-          </motion.h4>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {BOARD.map((member, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group"
-              >
-                <div className="aspect-square rounded-full overflow-hidden mb-4 relative shadow-md mx-auto w-32 md:w-40 border-4 border-white dark:border-slate-800">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="text-center">
-                  <h5 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                    {member.name}
-                  </h5>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
-                    {member.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        {/* SECTION — DYNAMIC CONTENT */}
+        <div className="mb-24 min-h-[400px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className={`grid gap-8 justify-center ${
+                activeTab === 'advisory' 
+                  ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6' 
+                  : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'
+              }`}
+            >
+              {activeData.map((leader: any, idx: number) => (
+                <motion.div
+                  key={leader.name}
+                  layoutId={activeTab !== 'advisory' ? `card-${leader.name}` : undefined}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  onClick={activeTab !== 'advisory' ? () => setSelectedLeader(leader) : undefined}
+                  className="group cursor-pointer text-center"
+                >
+                  {activeTab === 'advisory' ? (
+                    <>
+                      <div className="aspect-square rounded-full overflow-hidden mb-3 relative shadow-sm mx-auto w-24 md:w-28 border-2 border-white dark:border-slate-800">
+                        <img 
+                          src={leader.image} 
+                          alt={leader.name} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                      <h5 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                        {leader.name}
+                      </h5>
+                    </>
+                  ) : (
+                    <>
+                      <div className="aspect-[4/5] rounded-3xl overflow-hidden mb-4 relative shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-200/50 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 mx-auto">
+                        <motion.img 
+                          layoutId={`image-${leader.name}`}
+                          src={leader.image} 
+                          alt={leader.name} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      <motion.h5 layoutId={`card-name-${leader.name}`} className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                        {leader.name}
+                      </motion.h5>
+                      <motion.p layoutId={`card-role-${leader.name}`} className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        {leader.role || 'Advisor'}
+                      </motion.p>
+                    </>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        {/* SECTION — INVESTORS & PARTNERS */}
+        {/* SECTION — INVESTORS & PARTNERS (Always Visible) */}
         <div className="mb-24" id="partners">
           <motion.h4 
             initial={{ opacity: 0 }}
@@ -261,43 +298,6 @@ export const Leadership = () => {
           </div>
         </div>
 
-        {/* ADVISORS / NETWORK */}
-        <div>
-          <motion.h4 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-2xl font-display font-bold text-slate-900 dark:text-white mb-10 border-b border-slate-200 dark:border-slate-800 pb-4"
-          >
-            Advisors & Network
-          </motion.h4>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {ADVISORS.map((advisor, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                className="group text-center"
-              >
-                <div className="aspect-square rounded-full overflow-hidden mb-3 relative shadow-sm mx-auto w-24 md:w-28 border-2 border-white dark:border-slate-800">
-                  <img 
-                    src={advisor.image} 
-                    alt={advisor.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <h5 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                  {advisor.name}
-                </h5>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
       </div>
 
       {/* Modal for Leader Bio */}
@@ -314,7 +314,7 @@ export const Leadership = () => {
             <div className="popup-wrapper">
               <motion.div
                 layoutId={`card-${selectedLeader.name}`}
-                className="popup-container w-full max-w-6xl max-h-[90vh] flex flex-col md:flex-row"
+                className="popup-container w-full max-w-4xl max-h-[85vh] flex flex-col md:flex-row overflow-hidden"
               >
                 <button 
                   onClick={() => setSelectedLeader(null)}
@@ -324,7 +324,7 @@ export const Leadership = () => {
                 </button>
 
                 {/* Left Side: Image */}
-                <div className="popup-image-section">
+                <div className="w-full md:w-[40%] relative bg-slate-100 dark:bg-slate-900 min-h-[300px] md:min-h-0">
                   <motion.img 
                     layoutId={`image-${selectedLeader.name}`}
                     src={selectedLeader.image} 
@@ -332,9 +332,10 @@ export const Leadership = () => {
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
+                  {/* Mobile Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 md:hidden to-transparent" />
-                  <div className="absolute bottom-8 left-8 right-8 md:hidden">
-                    <motion.h5 layoutId={`name-${selectedLeader.name}`} className="text-4xl font-bold text-white mb-2 tracking-tight">
+                  <div className="absolute bottom-6 left-8 right-8 md:hidden">
+                    <motion.h5 layoutId={`name-${selectedLeader.name}`} className="text-3xl font-bold text-white mb-1 tracking-tight">
                       {selectedLeader.name}
                     </motion.h5>
                     <motion.p layoutId={`role-${selectedLeader.name}`} className="text-primary text-lg font-medium">
@@ -344,24 +345,24 @@ export const Leadership = () => {
                 </div>
 
                 {/* Right Side: Content */}
-                <div className="popup-content-section">
-                  <div className="hidden md:block mb-10">
+                <div className="w-full md:w-[60%] p-8 md:p-12 overflow-y-auto bg-white dark:bg-dark-card flex flex-col">
+                  <div className="hidden md:block mb-8">
                     <motion.h5 
                       layoutId={`name-${selectedLeader.name}`} 
-                      className="text-5xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-4 tracking-tighter"
+                      className="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-3 tracking-tight"
                     >
                       {selectedLeader.name}
                     </motion.h5>
                     <motion.p 
                       layoutId={`role-${selectedLeader.name}`} 
-                      className="text-primary-dark dark:text-primary text-2xl font-medium"
+                      className="text-primary-dark dark:text-primary text-xl font-medium"
                     >
                       {selectedLeader.role}
                     </motion.p>
                   </div>
                   
                   <div className="prose prose-slate dark:prose-invert max-w-none">
-                    <p className="text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap text-lg md:text-xl font-light">
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap text-base md:text-lg font-light">
                       {selectedLeader.bio}
                     </p>
                   </div>
