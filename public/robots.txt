@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://go-qii-2-0-new-14-26.vercel.app/sitemap.xml
