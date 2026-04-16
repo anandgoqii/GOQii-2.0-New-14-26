@@ -8,36 +8,66 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3000;
 
   // API routes
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
   });
 
+  const BASE_URL = "https://go-qii-2-0-new-14-26.vercel.app";
+
   // Robots.txt
   app.get("/robots.txt", (req, res) => {
-    res.type("text/plain");
-    res.send("User-agent: *\nAllow: /\nSitemap: https://goqii.com/sitemap.xml");
+    res.set("Content-Type", "text/plain");
+    res.send(`User-agent: *
+Allow: /
+
+Sitemap: https://go-qii-2-0-new-14-26.vercel.app/sitemap.xml`);
   });
 
-  // Sitemap.xml (Static for now)
+  // Sitemap.xml
   app.get("/sitemap.xml", (req, res) => {
-    res.type("application/xml");
-    res.send(`<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://goqii.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://goqii.com/about</loc><priority>0.8</priority></url>
-  <url><loc>https://goqii.com/contact</loc><priority>0.8</priority></url>
-  <url><loc>https://goqii.com/for-business</loc><priority>0.9</priority></url>
-  <url><loc>https://goqii.com/trust-center</loc><priority>0.7</priority></url>
-</urlset>`);
+    const routes = [
+      "",
+      "/about",
+      "/for-business",
+      "/for-you",
+      "/trust-center",
+      "/contact",
+      "/careers",
+      "/investors",
+      "/longevity-journey",
+      "/privacy",
+      "/terms",
+    ];
+
+    const urls = routes
+      .map(
+        (route) => `
+    <url>
+      <loc>${BASE_URL}${route}</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>${route === "" ? "1.0" : "0.8"}</priority>
+    </url>`
+      )
+      .join("");
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${urls}
+  </urlset>`;
+
+    res.set("Content-Type", "application/xml");
+    res.send(xml);
   });
 
   // llms.txt
   app.get("/llms.txt", (req, res) => {
-    res.type("text/plain");
-    res.send("GOQii Preventive Health Intelligence Platform. AI-powered longevity and healthspan optimization.");
+    res.set("Content-Type", "text/plain");
+    res.send(`User-agent: *
+Allow: /`);
   });
 
   // Vite middleware for development
@@ -56,7 +86,7 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
   });
 }
 
