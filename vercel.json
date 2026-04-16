@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "src": "/(robots.txt|sitemap.xml|llms.txt)",
+      "src": "^/(robots\\.txt|sitemap\\.xml|llms\\.txt)$",
       "dest": "/$1"
     },
     {
