@@ -5,71 +5,107 @@ import { X } from 'lucide-react';
 const LEADERSHIP = [
   { 
     name: "Vishal Gondal", 
-    role: "CEO & Founder", 
+    role: "Founder & CEO", 
     image: "https://goqiimum.s3.ap-south-1.amazonaws.com/sanjivani/assets/images/Team-Vishal.png", 
-    bio: `Vishal Gondal, often regarded as the pioneer of the Indian gaming industry, is now leading innovation in preventive healthcare and the emerging Health Metaverse. As the founder of GOQii, he combines technology, fitness, and behavioral science to build a platform focused on healthier lifestyles and long-term well-being.
+    bio: `Father of Indian gaming. Sold Indiagames to Walt Disney. Now pioneering preventive health at the intersection of AI, coaching, and the metaverse.`,
+    longBio: `A leading global figure at the intersection of healthcare, gaming, and entrepreneurship. As Founder and CEO of GOQii, he has transformed preventive healthcare by integrating AI, technology, and gamification across India, the UK, and the Middle East. 
 
-Previously, Vishal founded Indiagames, which was acquired by Walt Disney, and has been recognized among the top global executives in mobile content alongside industry leaders like Steve Jobs. He continues to contribute to the tech ecosystem as a member of the Tech Entrepreneurs Association of Mumbai (TEAM) and the Academic Advisory Board at the Somaiya School of Design.
-
-An active angel investor and podcast host of ‘Beneath the Force’, Vishal engages with diverse leaders and innovators. A passionate fitness enthusiast, he regularly participates in marathons, trekking, and adventure sports—reflecting his belief in living the philosophy he builds through GOQii.
-
-Vishal’s vision continues to shape the intersection of health, technology, and engagement—driving the future of preventive healthcare.`
+Known globally as the "Father of the Indian Gaming Industry," his early success with Indiagames culminated in its acquisition by The Walt Disney Company; he subsequently launched nCore Games, creator of FAU-G. Organises Mumbai Hacks for healthcare AI innovation. An avid marathon runner, trekker, and skydiver.`,
+    tags: ["Preventive Healthcare", "AI & Tech", "Gaming"],
+    location: "Mumbai · Global",
+    footerLine: "25+ Years in Tech & Health · Indiagames → Disney · GOQii"
   },
   { 
-    name: "Abhishek Sharma", 
-    role: "Co-Founder & CEO – GOQii UK", 
-    image: "https://appcdn.goqii.com/storeimg/69425_1775110219.jpg", 
-    bio: `Abhishek leads brand development, product marketing, PR, and social media at GOQii. A seasoned fitness product expert, he has worked with global brands like Nike across India, the USA, and the UK, driving both product innovation and consumer engagement.
-
-He is deeply committed to sustainability and social impact, having collaborated with global non-profit organizations on key initiatives. Outside work, Abhishek is an avid football fan, travel photographer, and enjoys long motorbike road trips.`
+    name: "Champ Alreja", 
+    role: "Co-Founder & Chief Business Officer", 
+    image: "https://appcdn.goqii.com/storeimg/93100_1775110237.jpg", 
+    bio: `Built GOQii's first wearables, conceived the Health Store, and leads global BD and APAC expansion across Hong Kong, Singapore, and the Asia Pacific.`,
+    longBio: `Radical in thought, meticulous in execution. Champ co-founded GOQii in 2014, bringing hardware engineering, behavioural product thinking, and commercial instinct to the company's growth. Before GOQii, he founded HitPlay — a gadget and consumer tech company built from scratch before Flipkart, before Amazon, at 24 with no playbook and no funding. As a product designer and inventor, he built GOQii's first lines of wearables from 2013 — at a time when the only comparable device was the original Fitbit Flex, which had no screen and no real-time feedback. His devices did. His career began as a Sound Engineer, giving him a ground-up understanding of how people interact with technology. He also conceived and built the GOQii Health Store — a scientifically designed rewards and retention engine grounded in behavioural economics and game theory, now one of the platform's most distinctive moats. Leads global BD and APAC expansion across Hong Kong, Singapore, and the Asia Pacific. A competitive tennis player who has built health discipline the same way he builds companies — one consistent rep at a time.`,
+    tags: ["Preventive Health", "Health Store", "APAC"],
+    location: "Hong Kong · Mumbai",
+    footerLine: "Co-Founder · Wearables Pioneer · Health Store Architect"
   },
   { 
     name: "Sachin Janghel", 
     role: "Co-Founder & CTO", 
     image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", 
-    bio: `Sachin leads the technology behind the GOQii ecosystem, bringing extensive experience across mobile, online, and interactive platforms. He has previously served as Technology Director at Indiagames (acquired by Disney UTV), where he led large-scale development teams.
-
-At Disney UTV, he worked on building technologies for Interactive TV platforms including satellite, digital cable, and IPTV. A passionate technologist, Sachin enjoys exploring new innovations, gaming, and has represented his state in national-level football and hockey.`
+    bio: `The technology brain behind GOQii. Built the entire HealthEngage ecosystem — AI, blockchain (UHT), wearables, IoT, and clinical platforms. Former Technology Director at Indiagames and Director of iTV at Disney UTV.`,
+    longBio: `The technology brain behind the entire GOQii ecosystem. Sachin co-founded GOQii in 2013 and has spent over a decade building one of the world's most comprehensive AI-driven preventive health platforms — from wearables and IoT devices to blockchain initiatives like the Universal Health Token (UHT). His career began with 11 years in game and interactive application development across mobile, online, and social platforms, including as Technology Director at Indiagames, India's #1 gaming company acquired by Disney UTV. At Disney UTV, he then led the build-out of Interactive TV platforms — satellite, digital cable, HITS, and IPTV. At GOQii, he leads AI-powered digital health solutions, remote patient monitoring, clinical workflow automation, and strategic technology partnerships with global insurers and healthcare providers. A football and hockey player who represented his home state at national level tournaments.`,
+    tags: ["AI & Healthtech", "Blockchain / UHT", "Gaming & IoT"],
+    location: "Saudi Arabia · Mumbai",
+    footerLine: "Co-Founder · 12+ Years Building GOQii · Disney UTV · UHT Core Team"
   },
   { 
-    name: "Champ Alreja", 
-    role: "Co-Founder & CBO – Health Store", 
-    image: "https://appcdn.goqii.com/storeimg/93100_1775110237.jpg", 
-    bio: `Champ combines engineering, manufacturing, and entrepreneurship to drive innovation at GOQii’s Health Store. As the founder of HitPlay, he brings deep expertise in building and delivering consumer tech products with a strong focus on quality and affordability.
-
-Known for his creative and execution-driven mindset, Champ continuously pushes industry benchmarks in product development and service. A passionate tennis player, he enjoys staying active and competitive on the court.`
+    name: "Abhishek Sharma", 
+    role: "Co-Founder & CEO, GOQii UK", 
+    image: "https://appcdn.goqii.com/storeimg/69425_1775110219.jpg", 
+    bio: `Leading GOQii's UK operations and NHS-aligned expansion. 7+ years at Nike across India, USA, and UK. Co-founder since 2013; built the brand from startup to recognised UK health platform.`,
+    longBio: `Abhishek leads GOQii's UK operations and has been instrumental in building the brand's presence in one of the world's most demanding health markets. He brings over seven years at Nike across India, the USA, and the UK — spanning senior product and consumer roles — along with deep expertise in brand development, product marketing, PR, and social media. As Co-Founder and CMO from 2013, then COO, and now CEO of GOQii UK, he has grown the business from a startup into a recognised NHS-aligned health platform. A strong believer in sustainability and social impact, he has collaborated with global non-profits on key social projects. An ardent football fan, travel photographer, and long-distance motorbike rider.`,
+    tags: ["Brand & Marketing", "UK Market", "Consumer Health"],
+    location: "London",
+    footerLine: "Co-Founder · CEO GOQii UK · Nike · IIM Calcutta"
   },
   { 
     name: "Krishna Kumar", 
     role: "Chief Customer Officer", 
     image: "https://appcdn.goqii.com/storeimg/41869_1756732325.png", 
-    bio: `KK leads customer experience, brand strategy, and consumer engagement at GOQii. With a strong background in advertising and digital marketing, he has worked with leading global networks like Publicis, Leo Burnett, and WPP, and founded Media2win—one of India’s top digital agencies.
-
-An avid mountaineer and marathon runner, KK regularly scales Himalayan peaks and brings the same discipline and endurance into building impactful brands.`
+    bio: `Chief Customer Officer and head of marketing strategy. Founded Media2win — one of India's top digital agencies. Mountaineer who scales 6000m+ Himalayan peaks every year and runs multiple marathons.`,
+    longBio: `A passion for brands, mountains, and startups is what drives KK. At GOQii, he is Chief Customer Officer and leads overall marketing strategy and consumer engagement — building systems that help people make healthier choices and sustain them over time. His career began in advertising across networks including Publicis, Leo Burnett, and WPP (Mindshare), before he founded Media2win in 2004 — a digital agency that grew into one of India's top digital firms and won multiple industry awards. That brought him to GOQii, where he works at the intersection of technology, data, coaching, and behavioural science. Also a Core Team member at Universal Health Token (UHT), focused on marketing. Outside work, he scales 6000+ metre peaks in the Himalayas every year and runs multiple marathons — proof that he lives the preventive health philosophy he champions.`,
+    tags: ["Consumer Engagement", "Brand Strategy", "Digital Marketing"],
+    location: "Mumbai",
+    footerLine: "CCO · Media2win Founder · UHT Core Team · Mindshare / WPP"
   },
   { 
     name: "Rohit Pareek", 
-    role: "Chief Financial Officer", 
+    role: "CFO & Head Corporate Development", 
     image: "https://appcdn.goqii.com/storeimg/57617_1775121635.jpg", 
-    bio: `Rohit leads finance and corporate development at GOQii, bringing deep expertise from his investment banking career at Jefferies, JM Financial, and Times Group. He has worked with numerous companies and investors, gaining strong insights into growth, governance, and financial strategy.
+    bio: `50+ PE/VC, M&A, and IPO transactions across India and the US. Built Jefferies India's ECM desk from zero. IIM Ahmedabad MBA · IIT BHU B.Tech.`,
+    longBio: `Rohit leads finance and corporate development at GOQii, bringing deep expertise from his investment banking career at Jefferies, JM Financial, and Times Group. He has led 50+ PE/VC, M&A, and IPO transactions across India and the US.
 
-An alumnus of IIM Ahmedabad and IIT BHU, Rohit is passionate about sustainability and social impact. He enjoys meditation and spending time with family.`
+He built Jefferies India's Equity Capital Markets (ECM) desk from zero to a leading position. An alumnus of IIM Ahmedabad and IIT BHU, Rohit is passionate about sustainability and governance. He enjoys meditation and spending time with family.`,
+    tags: ["Corp Finance", "M&A", "Governance"],
+    location: "USA · Mumbai",
+    footerLine: "IIM Ahmedabad · Jefferies Alumnus · Finance Strategy"
   },
   { 
-    name: "V Srinivasan", 
+    name: "Piyush Karnani", 
+    role: "Chief Business Officer", 
+    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", 
+    bio: `23+ years across banking, insurance, and healthtech. Launched industry-first contactless and wearable payment solutions. Ex-Marsh, Standard Chartered, Barclays, Citibank.`,
+    longBio: `Senior business leader with 23+ years spanning banking, insurance, and healthtech. At GOQii, Piyush leads P&L ownership and the banking, insurance, payments, and strategic initiatives verticals — building alliances with banks, fintechs, insurers, and governments. He launched industry-first contactless and wearable payment solutions and led global expansion at GOQii. Previously VP of Digital Insurance & Consumer Business at Marsh & McLennan (country head), Head of Consumer Banking Sales & Liabilities at Standard Chartered Bank, Regional Head at Barclays, and Bancassurance roles at Citibank. A specialist in strategic partnerships, payments ecosystems, and embedded finance across global markets.`,
+    tags: ["Banking & Insurance", "Payments", "Strategic Partnerships"],
+    location: "UAE · Mumbai",
+    footerLine: "23+ Years · Marsh · Standard Chartered · Barclays · Citibank"
+  },
+  { 
+    name: "Srinivasan V Swamy", 
     role: "Director", 
     image: "https://appcdn.goqii.com/storeimg/66392_1775110257.jpg", 
-    bio: `Srini is a Chartered Accountant with over 25 years of experience across leading corporates. He previously served as CFO of Bharti AXA Life Insurance and has extensive expertise in financial planning, data analysis, and growth strategy.
-
-He has also contributed to regulatory and policy discussions as part of committees with IRDA and the Ministry of Finance. A fitness enthusiast, Srini enjoys food, music, and staying active.`
+    bio: `25+ years in corporate finance. Former CFO of Bharti AXA Life Insurance. Independent Director at Acko and Aegon Life. Pioneer of India's fractional CXO model with 500+ SME clients.`,
+    longBio: `A Chartered Accountant with over 25 years in corporate finance and operations. Srini served as CFO of Bharti AXA Life Insurance, where he led finance, strategy, legal, compliance, and investment functions — including direct engagement with IRDA and the Ministry of Finance on complex policy issues. He later served as Independent Director at Aegon Life and Acko Insurance. Since founding CFO Bridge in 2011, he has become one of India's pioneers of the fractional CXO model, partnering with 500+ SMEs and startups across India, the US, and UAE. Also co-founder of CTO Bridge and CHRO Bridge. A passionate sleep advocate, Vipassana meditator, and yoga practitioner.`,
+    tags: ["Finance & Governance", "Insurance", "Fractional CFO"],
+    location: "Mumbai",
+    footerLine: "CA · Bharti AXA CFO · CFO Bridge Founder · 500+ SMEs"
   },
   { 
     name: "Luke Coutinho", 
-    role: "Master Coach & Head Nutritionist", 
+    role: "Co-Founder, Master Coach & Head Nutritionist", 
     image: "https://goqiimum.s3.ap-south-1.amazonaws.com/sanjivani/assets/images/Team-Like-Counho.png", 
-    bio: `Luke is a globally recognized nutritionist, author, and motivational speaker. His book “Eat Smart, Move More, Sleep Right” has reached audiences worldwide. He collaborates with the Yale Griffin Prevention Research Center and leads educational programs across India and Asia.
-
-A strong advocate of preventive health and lifestyle-based healing, Luke focuses on nutrition, holistic wellness, and sustainable habit change—helping individuals shift towards healthier living.`
+    bio: `India's leading integrative medicine expert. 17M+ global community, 20K+ patients healed. PM Modi's Fit India Champion. Four-time bestselling author. The clinical heart of GOQii's coaching model.`,
+    longBio: `India's foremost integrative and lifestyle medicine expert, and the clinical soul of GOQii's coaching model. Luke has consulted and treated over 20,000 patients globally — including cancer, Alzheimer's, diabetes, and rare metabolic syndromes — through his signature five-pillar framework: Cellular Nutrition, Adequate Exercise, Quality Sleep, Emotional Detox, and Spirit. His global community of 17M+ spans billionaires to A-listers across Bollywood, royal families in the Middle East, and elite athletes. Named Champion for Lifestyle & Wellness for Prime Minister Modi's Fit India Movement. Four-time bestselling author. Founder of You Care Lifestyle and the Lifeness Science Institute. Over 250 talks across the world.`,
+    tags: ["Integrative Medicine", "Holistic Nutrition", "Preventive Health"],
+    location: "Mumbai · Global",
+    footerLine: "17M+ Community · 20K+ Patients · PM Fit India Champion · Author"
+  },
+  { 
+    name: "Kamal Chandran", 
+    role: "Chief Compliance & HR Officer", 
+    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", 
+    bio: `HR leader, talent strategist, and NLP Life Performance Coach. Leads compliance and people strategy across GOQii and nCORE. Ex-Accenture, ScaleneWorks. IIM Nagpur alumna.`,
+    longBio: `HR leader, talent strategist, and NLP Life Performance Coach driving people and AI synergy at GOQii. Kamal leads the company's compliance and human resources function, with a career spanning Accenture (Talent Acquisition Delivery Lead — Product Industry), ScaleneWorks (VP RPO Head), and senior HR business partner roles. Simultaneously serves as Group Head Human Resources at nCORE Games. Specialises in strategic HR planning, talent acquisition, employee relations, diversity and inclusion, succession planning, and coaching. An IIM Nagpur alumna, she brings a rare combination of enterprise rigour and startup agility to building GOQii's people infrastructure.`,
+    tags: ["HR Strategy", "Talent & Culture", "Compliance"],
+    location: "Mumbai",
+    footerLine: "CHRO · nCORE Group HR Head · Accenture · ScaleneWorks · IIM Nagpur"
   },
 ];
 
@@ -175,8 +211,11 @@ export const Leadership = () => {
         >
           <p className="small font-bold uppercase tracking-widest text-primary mb-4 mx-auto">Leadership</p>
           <h2 className="font-display font-bold text-slate-900 dark:text-white mb-6">Built by Experts. Trusted Globally.</h2>
-          <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed">
-            GOQii is led by a team with deep expertise in healthcare, technology, and behavioral science.
+          <p className="opacity-70 max-w-4xl mx-auto font-light leading-relaxed text-lg md:text-xl">
+            Founded in 2014 by visionary entrepreneur Vishal Gondal, GOQii has been at the forefront of transforming preventive healthcare on a global scale.
+          </p>
+          <p className="opacity-70 max-w-4xl mx-auto font-light leading-relaxed text-lg md:text-xl mt-4">
+            What started as a mission to shift the focus from reactive "sick care" to proactive preventive care has evolved into a comprehensive digital health platform.
           </p>
         </motion.div>
 
@@ -206,10 +245,10 @@ export const Leadership = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className={`grid gap-8 justify-center ${
+              className={`grid gap-y-12 gap-x-6 justify-center ${
                 activeTab === 'advisory' 
                   ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6' 
-                  : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'
+                  : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'
               }`}
             >
               {activeData.map((leader: any, idx: number) => (
@@ -220,7 +259,7 @@ export const Leadership = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
                   onClick={activeTab !== 'advisory' ? () => setSelectedLeader(leader) : undefined}
-                  className="group cursor-pointer text-center"
+                  className={`group cursor-pointer p-7 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 flex flex-col text-left h-full ${activeTab === 'advisory' ? 'items-center text-center' : 'items-start text-left'}`}
                 >
                   {activeTab === 'advisory' ? (
                     <>
@@ -238,22 +277,50 @@ export const Leadership = () => {
                     </>
                   ) : (
                     <>
-                      <div className="aspect-[4/5] rounded-3xl overflow-hidden mb-4 relative shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-200/50 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 mx-auto">
+                      {/* New Image Style: Circle at top */}
+                      <div className="w-24 h-24 rounded-full overflow-hidden mb-6 relative border-4 border-slate-100 dark:border-slate-800 group-hover:border-primary/20 transition-colors shrink-0">
                         <motion.img 
                           layoutId={`image-${leader.name}`}
                           src={leader.image} 
                           alt={leader.name} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           referrerPolicy="no-referrer"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
-                      <motion.h5 layoutId={`card-name-${leader.name}`} className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                        {leader.name}
-                      </motion.h5>
-                      <motion.p layoutId={`card-role-${leader.name}`} className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                        {leader.role || 'Advisor'}
-                      </motion.p>
+                      
+                      <div className="flex-1 flex flex-col w-full">
+                        <motion.h5 layoutId={`card-name-${leader.name}`} className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                          {leader.name}
+                        </motion.h5>
+                        
+                        <motion.div layoutId={`card-role-container-${leader.name}`} className="mb-4">
+                          <p className="text-primary font-bold text-sm leading-tight">
+                            {leader.role}
+                          </p>
+                          <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-0.5">
+                            GOQii
+                          </p>
+                        </motion.div>
+
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-light line-clamp-3 mb-6">
+                            {leader.bio ? (leader.bio.includes('\n') ? leader.bio.split('\n')[0] : leader.bio) || "Pioneering innovation at GOQii." : "Pioneering innovation at GOQii."}
+                        </p>
+
+                        <div className="mt-auto pt-4 flex flex-col gap-4 border-t border-slate-100 dark:border-slate-800/50 w-full">
+                          <div className="flex flex-wrap gap-2">
+                            {(leader.tags || ["Health Tech", "Innovation"]).map((tag: string) => (
+                              <span key={tag} className="px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          
+                          <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {leader.location || "Mumbai • Global"}
+                          </div>
+                        </div>
+                      </div>
                     </>
                   )}
                 </motion.div>
@@ -314,57 +381,76 @@ export const Leadership = () => {
             <div className="popup-wrapper">
               <motion.div
                 layoutId={`card-${selectedLeader.name}`}
-                className="popup-container w-full max-w-4xl max-h-[85vh] flex flex-col md:flex-row overflow-hidden"
+                className="popup-container w-full max-w-2xl p-6 md:p-8 bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl relative flex flex-col border border-slate-200 dark:border-slate-800 mx-4"
               >
                 <button 
                   onClick={() => setSelectedLeader(null)}
-                  className="popup-close"
+                  className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors z-50 border border-slate-200 dark:border-white/10"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-4 h-4" />
                 </button>
 
-                {/* Left Side: Image */}
-                <div className="w-full md:w-[40%] relative bg-slate-100 dark:bg-slate-900 min-h-[300px] md:min-h-0">
-                  <motion.img 
-                    layoutId={`image-${selectedLeader.name}`}
-                    src={selectedLeader.image} 
-                    alt={selectedLeader.name} 
-                    className="w-full h-full object-cover object-top"
-                    referrerPolicy="no-referrer"
-                  />
-                  {/* Mobile Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 md:hidden to-transparent" />
-                  <div className="absolute bottom-6 left-8 right-8 md:hidden">
-                    <motion.h5 layoutId={`name-${selectedLeader.name}`} className="text-3xl font-bold text-white mb-1 tracking-tight">
+                {/* Header: Circle Image + Info */}
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-slate-100 dark:border-slate-800 shrink-0 shadow-lg">
+                    <motion.img 
+                      layoutId={`image-${selectedLeader.name}`}
+                      src={selectedLeader.image} 
+                      alt={selectedLeader.name} 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  
+                  <div className="text-center md:text-left pt-1">
+                    <motion.h5 
+                      layoutId={`card-name-${selectedLeader.name}`} 
+                      className="text-2xl md:text-3xl font-display font-bold text-slate-900 dark:text-white mb-1 tracking-tight"
+                    >
                       {selectedLeader.name}
                     </motion.h5>
-                    <motion.p layoutId={`role-${selectedLeader.name}`} className="text-primary text-lg font-medium">
-                      {selectedLeader.role}
-                    </motion.p>
+                    <motion.div layoutId={`card-role-container-${selectedLeader.name}`} className="mb-4">
+                      <p className="text-primary font-bold text-lg leading-none mb-1">
+                        {selectedLeader.role}
+                      </p>
+                      <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">
+                        GOQii Inc.
+                      </p>
+                    </motion.div>
+
+                    <div className="flex flex-wrap justify-center md:justify-start gap-1.5">
+                      {(selectedLeader.tags || ["Health Tech", "Innovation"]).map((tag: string) => (
+                        <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary uppercase tracking-tight">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Right Side: Content */}
-                <div className="w-full md:w-[60%] p-8 md:p-12 overflow-y-auto bg-white dark:bg-dark-card flex flex-col">
-                  <div className="hidden md:block mb-8">
-                    <motion.h5 
-                      layoutId={`name-${selectedLeader.name}`} 
-                      className="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-3 tracking-tight"
-                    >
-                      {selectedLeader.name}
-                    </motion.h5>
-                    <motion.p 
-                      layoutId={`role-${selectedLeader.name}`} 
-                      className="text-primary-dark dark:text-primary text-xl font-medium"
-                    >
-                      {selectedLeader.role}
-                    </motion.p>
-                  </div>
-                  
-                  <div className="prose prose-slate dark:prose-invert max-w-none">
-                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap text-base md:text-lg font-light">
-                      {selectedLeader.bio}
+                {/* Divider */}
+                <div className="h-px w-full bg-slate-200 dark:bg-slate-800 mb-8" />
+
+                {/* Body Content */}
+                <div className="overflow-y-auto max-h-[35vh] md:max-h-[40vh] pr-4 custom-scrollbar mb-8">
+                  <div className="prose prose-sm prose-slate dark:prose-invert max-w-none">
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap text-sm md:text-base font-light">
+                      {selectedLeader.longBio || selectedLeader.bio}
                     </p>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="h-px w-full bg-slate-200 dark:bg-slate-800 mb-6" />
+
+                {/* Footer Metadata */}
+                <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] font-bold uppercase tracking-widest">
+                  <div className="text-primary/80">
+                    {selectedLeader.footerLine || "GOQii · Leading Health Innovation"}
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    {selectedLeader.location || "Mumbai · Global"}
                   </div>
                 </div>
               </motion.div>

@@ -17,6 +17,34 @@ async function startServer() {
 
   const BASE_URL = "https://go-qii-2-0-new-14-26.vercel.app";
 
+  // SEO and System Routes
+  app.get("/robots.txt", (req, res) => {
+    res.setHeader("Content-Type", "text/plain");
+    res.send(`User-agent: *
+Allow: /
+
+Sitemap: ${BASE_URL}/sitemap.xml`);
+  });
+
+  app.get("/sitemap.xml", (req, res) => {
+    res.setHeader("Content-Type", "application/xml");
+    res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${BASE_URL}/</loc>
+  </url>
+  <url>
+    <loc>${BASE_URL}/about</loc>
+  </url>
+</urlset>`);
+  });
+
+  app.get("/llms.txt", (req, res) => {
+    res.setHeader("Content-Type", "text/plain");
+    res.send(`User-agent: *
+Allow: /`);
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
