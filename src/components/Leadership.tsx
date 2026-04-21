@@ -129,49 +129,151 @@ const INVESTORS = [
 ];
 
 const ADVISORS = [
-  { name: "Ilkka Paananen", image: "https://websitecdn.goqii.com/images/profileimg/investor_ilkka.png" },
-  { name: "Pravin Gandhi", image: "https://websitecdn.goqii.com/images/profileimg/investor_pravin.png" },
-  { name: "Amit Singhal", image: "https://websitecdn.goqii.com/images/profileimg/investor_amit.png" },
-  { name: "Neeraj Arora", image: "https://websitecdn.goqii.com/images/profileimg/investor_neeraj.png" },
-  { name: "Vijay Sharma", image: "https://websitecdn.goqii.com/images/profileimg/investor_vijay.png" },
-  { name: "Marco Argenti", image: "https://websitecdn.goqii.com/images/profileimg/investor_marco.png" },
-  { name: "Anil Godhwani", image: "https://websitecdn.goqii.com/images/profileimg/investor_anil.png" },
-  { name: "Bharat Vasan", image: "https://websitecdn.goqii.com/images/profileimg/investor_bharat.png" },
-  { name: "Dr. Shriram Nene", image: "https://websitecdn.goqii.com/images/profileimg/investor_shriram.png" },
-  { name: "Esther Dyson", image: "https://websitecdn.goqii.com/images/profileimg/investor_esther.png" },
-  { name: "Gautam Godhwani", image: "https://websitecdn.goqii.com/images/profileimg/investor_gautam.png" },
-  { name: "Kanwaljit Bombra", image: "https://websitecdn.goqii.com/images/profileimg/Kanwaljit.png" },
-  { name: "Mahesh Samat", image: "https://websitecdn.goqii.com/images/profileimg/investor_mahesh.png" },
-  { name: "Mike McNamara", image: "https://websitecdn.goqii.com/images/profileimg/investor_mike.png" },
-  { name: "Prashant Gulati", image: "https://websitecdn.goqii.com/images/profileimg/investor_prashant.png" },
-  { name: "Sanjay Parthasarthy", image: "https://websitecdn.goqii.com/images/profileimg/investor_sanjay.png" },
-  { name: "Sanjay Vaswani", image: "https://websitecdn.goqii.com/images/profileimg/Sanjay.png" },
-  { name: "Steve Luczo", image: "https://websitecdn.goqii.com/images/profileimg/investor_steve.png" },
-  { name: "Taher Khorakiwala", image: "https://websitecdn.goqii.com/images/profileimg/investor_taher.png" },
-  { name: "Vijay Vashee", image: "https://websitecdn.goqii.com/images/profileimg/investor_vijayv.png" },
-  { name: "S. Somasegar", image: "https://websitecdn.goqii.com/images/profileimg/investor_somasegar.png" },
-  { name: "Rajan Anandan", image: "https://websitecdn.goqii.com/images/profileimg/investor_rajan.png" },
-  { name: "Deepak I. Shahdadpuri", image: "https://websitecdn.goqii.com/images/profileimg/investor_deepak.png" }
+  // HONG KONG
+  { 
+    name: "Yat Siu", 
+    role: "Co-Founder & Executive Chairman", 
+    company: "Animoca Brands",
+    image: "https://websitecdn.goqii.com/images/profileimg/investor_yatsiu.png",
+    bio: "Asia's leading Web3 entrepreneur. Built Outblaze to 75M users, sold to IBM, co-founded Animoca Brands — 500+ portfolio investments in digital property rights. Recently secured HKMA stablecoin licence.",
+    tags: ["Web3", "Gaming"],
+    location: "Hong Kong",
+    region: "HONG KONG"
+  },
+  { 
+    name: "Desmond Lin", 
+    role: "PE & VC Investor", 
+    company: "Eos Venture Partners",
+    image: "https://websitecdn.goqii.com/images/profileimg/investor_desmond.png",
+    bio: "Insurtech and healthtech investor spanning Swiss Re, Longreach Group, and Eos Ventures. Deep capital markets expertise across Greater China.",
+    tags: ["Insurtech", "PE / VC"],
+    location: "Hong Kong",
+    region: "HONG KONG"
+  },
+  { 
+    name: "Rich Robinson", 
+    role: "Entrepreneur-in-Residence", 
+    company: "Animoca Brands",
+    image: "https://websitecdn.goqii.com/images/profileimg/investor_rich.png",
+    bio: "30 years across Asia's tech waves from Web 1.0 to Web3. 8 startups; 3 public exits. Peking University professor. Rare connector across Silicon Valley and Asia.",
+    tags: ["Web3", "Startups"],
+    location: "HK · Bali · Beijing",
+    region: "HONG KONG"
+  },
+  // UNITED KINGDOM
+  { 
+    name: "Prof Vincent Sai", 
+    role: "Group CEO & Partner", 
+    company: "Modality Partnership (NHS)",
+    image: "https://websitecdn.goqii.com/images/profileimg/investor_vincent.png",
+    bio: "Scaled the UK's largest NHS GP super-partnership to 12M+ patients across 55+ sites. Honorary Professor at UCL. GOQii's NHS clinical outcomes anchor.",
+    tags: ["NHS", "Digital Health"],
+    location: "London",
+    region: "UNITED KINGDOM"
+  },
+  // UNITED STATES
+  { 
+    name: "Amit Singhal", 
+    role: "Former SVP Search — Google", 
+    company: "Founder, Sitare University & Foundation",
+    image: "https://appcdn.goqii.com/storeimg/98313_1775053077.jpg",
+    bio: "Architect of Google Search for 15 years as employee #176. Named by Fortune as one of the smartest people in tech. Founded Sitare University — India's first fully free private CS university.",
+    tags: ["Search / AI", "Engineering"],
+    location: "USA",
+    region: "UNITED STATES"
+  },
+  { 
+    name: "Lauren Selig", 
+    role: "Founder & CEO", 
+    company: "Shake and Bake Productions",
+    image: "https://websitecdn.goqii.com/images/profileimg/investor_lauren.png",
+    bio: "Executive producer of Hacksaw Ridge, Rocketman, and Wheel of Time. Emmy winner. Investor in A16z and Vaxxinity. XPRIZE board member.",
+    tags: ["Entertainment", "Venture"],
+    location: "Los Angeles",
+    region: "UNITED STATES"
+  },
+  // UAE / GLOBAL
+  { 
+    name: "Manoj Narender Madnani", 
+    role: "President", 
+    company: "GasEntec · Beacon Media",
+    image: "https://websitecdn.goqii.com/images/profileimg/investor_manoj.png",
+    bio: "$20B+ in global transactions across energy, infrastructure, and media. Brought enterprise AI to UAE and GCC. YPO member. Babson Trustee.",
+    tags: ["Investments", "GCC / MENA"],
+    location: "Dubai",
+    region: "UAE / GLOBAL"
+  },
+  // INDIA
+  { 
+    name: "Champ Alreja", 
+    role: "Co-Founder & CBO", 
+    company: "GOQii",
+    image: "https://appcdn.goqii.com/storeimg/93100_1775110237.jpg",
+    bio: "Built GOQii's first wearables from 2013 before the category existed. Conceived the Health Store — a retention engine grounded in behavioural economics. Leads global BD and APAC expansion.",
+    tags: ["Preventive Health", "Health Store"],
+    location: "Hong Kong · Mumbai",
+    region: "INDIA"
+  },
+  { 
+    name: "Bala Deshpande", 
+    role: "Managing Director", 
+    company: "MegaDelta Capital",
+    image: "https://appcdn.goqii.com/storeimg/40814_1775053051.jpg",
+    bio: "Two decades in venture from ICICI Venture to NEA India. Backed India's first internet IPO, first news channel, and first payments company. Independent director at Info Edge.",
+    tags: ["Venture Capital", "Consumer Tech"],
+    location: "Mumbai",
+    region: "INDIA"
+  },
+  { 
+    name: "Pravin Gandhi", 
+    role: "General Partner", 
+    company: "Seedfund",
+    image: "https://appcdn.goqii.com/storeimg/24219_1775109984.jpg",
+    bio: "Founding figure of India's tech and VC ecosystem. 40+ years across Hinditron, Infinity Ventures, and Seedfund. Former TiE Mumbai President and TiE Global Trustee.",
+    tags: ["Early Stage VC", "India Ecosystem"],
+    location: "Mumbai",
+    region: "INDIA"
+  },
+  // SINGAPORE
+  { 
+    name: "Christine Li", 
+    role: "VP Strategy & Operations", 
+    company: "MBK Healthcare (Mitsui & Co.)",
+    image: "https://appcdn.goqii.com/storeimg/57121_1775053095.jpg",
+    bio: "Physician-turned-strategist at Mitsui's global healthcare investment platform. Previously Parkway Pantai and IHH. UHT advisory board. HBS MBA; MBBS NUS.",
+    tags: ["Healthcare Strategy", "HCIT"],
+    location: "Singapore",
+    region: "SINGAPORE"
+  }
 ];
 
 const LONGEVITY_COUNCIL = [
   { 
     name: "Prof. Anurag Agrawal", 
-    role: "Genomics & Precision Medicine", 
-    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", // Placeholder
-    bio: "Former Director, CSIR-IGIB; Dean, Ashoka University. A global authority in genomics and precision medicine."
+    role: "Longevity Scientist", 
+    company: "Ashoka University",
+    image: "", // Use initials
+    bio: "Genomics & Precision Medicine. Former Director, CSIR-IGIB; Dean, Ashoka University. A global authority in genomics and precision medicine.",
+    tags: ["Clinical", "Longevity"],
+    location: "New Delhi"
   },
   { 
     name: "Dr. Aashish Contractor", 
     role: "Cardiology & Rehabilitation", 
-    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", // Placeholder
-    bio: "Leading expert in cardiac rehab and preventive cardiology. Known for his work in scaling cardiac rehabilitation programs."
+    company: "Reliance Foundation Hospital",
+    image: "", 
+    bio: "Leading expert in cardiac rehab and preventive cardiology. Director at Sir H.N. Reliance Foundation Hospital.",
+    tags: ["Cardiology", "Rehab"],
+    location: "Mumbai"
   },
   { 
     name: "Dr. Nirmal Punjabi", 
-    role: "Clinical Research", 
-    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", // Placeholder
-    bio: "Specialist in metabolic health and clinical trial validation. Expert in designing and validating clinical protocols."
+    role: "Metabolic Health", 
+    company: "Reliance Foundation Hospital",
+    image: "", 
+    bio: "Specialist in metabolic health and clinical trial validation. Expert in designing and validating clinical protocols.",
+    tags: ["Metabolic Health", "Research"],
+    location: "Mumbai"
   }
 ];
 
@@ -245,39 +347,170 @@ export const Leadership = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className={`grid gap-y-12 gap-x-6 justify-center ${
-                activeTab === 'advisory' 
-                  ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6' 
-                  : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'
-              }`}
+              className="w-full"
             >
-              {activeData.map((leader: any, idx: number) => (
-                <motion.div
-                  key={leader.name}
-                  layoutId={activeTab !== 'advisory' ? `card-${leader.name}` : undefined}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  onClick={activeTab !== 'advisory' ? () => setSelectedLeader(leader) : undefined}
-                  className={`group cursor-pointer p-7 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 flex flex-col text-left h-full ${activeTab === 'advisory' ? 'items-center text-center' : 'items-start text-left'}`}
-                >
-                  {activeTab === 'advisory' ? (
-                    <>
-                      <div className="aspect-square rounded-full overflow-hidden mb-3 relative shadow-sm mx-auto w-24 md:w-28 border-2 border-white dark:border-slate-800">
-                        <img 
-                          src={leader.image} 
-                          alt={leader.name} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          referrerPolicy="no-referrer"
-                        />
+              {activeTab === 'advisory' ? (
+                <div className="space-y-20">
+                  {['HONG KONG', 'UNITED KINGDOM', 'UNITED STATES', 'UAE / GLOBAL', 'INDIA', 'SINGAPORE'].map(regionName => {
+                    const regionalAdvisors = ADVISORS.filter(a => a.region === regionName);
+                    if (regionalAdvisors.length === 0) return null;
+                    
+                    return (
+                      <div key={regionName} className="region-section">
+                        <div className="flex items-center gap-4 mb-10 border-b border-slate-100 dark:border-slate-800 pb-4">
+                          <h3 className="text-primary font-bold tracking-[0.2em] text-xs uppercase shrink-0">
+                            {regionName}
+                          </h3>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                          {regionalAdvisors.map((advisor) => (
+                            <div
+                              key={advisor.name}
+                              className="group p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-xl flex flex-col items-start text-left h-full"
+                            >
+                              <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-slate-100 dark:border-slate-800 group-hover:border-primary/20 transition-colors shrink-0">
+                                <img 
+                                  src={advisor.image} 
+                                  alt={advisor.name} 
+                                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                  referrerPolicy="no-referrer"
+                                />
+                              </div>
+                              
+                              <div className="flex-1 flex flex-col w-full">
+                                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                  {advisor.name}
+                                </h4>
+                                <div className="mb-4">
+                                  <p className="text-primary font-bold text-sm leading-tight">
+                                    {advisor.role}
+                                  </p>
+                                  <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-0.5 opacity-80">
+                                    {advisor.company}
+                                  </p>
+                                </div>
+                                
+                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 font-light">
+                                  {advisor.bio}
+                                </p>
+
+                                <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800/50 w-full">
+                                  <div className="flex flex-wrap gap-1.5 mb-4">
+                                    {(advisor.tags || []).map(tag => (
+                                      <span key={tag} className="px-2.5 py-0.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] font-bold text-primary uppercase tracking-tight">
+                                        {tag}
+                                      </span>
+                                    ))}
+                                  </div>
+                                  
+                                  <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                    {advisor.location}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <h5 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                        {leader.name}
-                      </h5>
-                    </>
-                  ) : (
-                    <>
-                      {/* New Image Style: Circle at top */}
+                    );
+                  })}
+                </div>
+              ) : activeTab === 'longevity' ? (
+                <div className="w-full">
+                  <div className="flex items-center gap-4 mb-10 border-b border-primary/20 pb-4">
+                    <h3 className="text-primary font-bold tracking-[0.2em] text-sm uppercase shrink-0">
+                      SANJEEVANI LONGEVITY COUNCIL
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {LONGEVITY_COUNCIL.map((member) => (
+                      <div
+                        key={member.name}
+                        className="group p-8 rounded-[2.5rem] bg-white dark:bg-slate-900/50 border-2 border-slate-200 dark:border-slate-800 border-dashed transition-all duration-300 hover:border-primary/50 flex flex-col items-start text-left h-full"
+                      >
+                        <div className="w-24 h-24 rounded-full bg-slate-100 dark:bg-primary/10 flex items-center justify-center mb-6 border-2 border-slate-100 dark:border-primary/20 shrink-0">
+                          <span className="text-2xl font-bold text-primary">
+                            {member.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                          </span>
+                        </div>
+                        
+                        <div className="flex-1 flex flex-col w-full">
+                          <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                            {member.name}
+                          </h4>
+                          <div className="mb-4">
+                            <p className="text-primary font-bold text-sm leading-tight">
+                              {member.role}
+                            </p>
+                            <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-0.5 opacity-80">
+                              {member.company}
+                            </p>
+                          </div>
+                          
+                          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-8 font-light">
+                            {member.bio}
+                          </p>
+
+                          <div className="mt-auto flex flex-col gap-4 w-full">
+                            <div className="flex flex-wrap gap-2">
+                              {(member.tags || []).map(tag => (
+                                <span key={tag} className="px-3 py-1 rounded-lg bg-primary/5 border border-primary/10 text-[10px] font-bold text-primary uppercase">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* Add Members Placeholder Card */}
+                    <div className="group p-8 rounded-[2.5rem] bg-white dark:bg-slate-900/30 border-2 border-slate-200 dark:border-slate-800 border-dashed transition-all duration-300 flex flex-col items-start text-left h-full opacity-60">
+                      <div className="w-24 h-24 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center mb-6 border-2 border-slate-100 dark:border-slate-700 shrink-0">
+                        <span className="text-3xl font-light text-slate-400">+</span>
+                      </div>
+                      
+                      <div className="flex-1 flex flex-col w-full">
+                        <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
+                          Add members
+                        </h4>
+                        <div className="mb-4">
+                          <p className="text-primary font-bold text-sm leading-tight">
+                            Doctors & wellness experts
+                          </p>
+                          <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-0.5">
+                            TBD
+                          </p>
+                        </div>
+                        
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-8 font-light italic">
+                          Coming soon.
+                        </p>
+
+                        <div className="mt-auto">
+                          <span className="px-3 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[10px] font-bold text-slate-400 uppercase">
+                            Placeholder
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-6 justify-center">
+                  {activeData.map((leader: any, idx: number) => (
+                    <motion.div
+                      key={leader.name}
+                      layoutId={`card-${leader.name}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.05 }}
+                      onClick={() => setSelectedLeader(leader)}
+                      className="group cursor-pointer p-7 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 flex flex-col items-start text-left h-full"
+                    >
                       <div className="w-24 h-24 rounded-full overflow-hidden mb-6 relative border-4 border-slate-100 dark:border-slate-800 group-hover:border-primary/20 transition-colors shrink-0">
                         <motion.img 
                           layoutId={`image-${leader.name}`}
@@ -301,30 +534,30 @@ export const Leadership = () => {
                             GOQii
                           </p>
                         </motion.div>
-
+                        
                         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-light line-clamp-3 mb-6">
                             {leader.bio ? (leader.bio.includes('\n') ? leader.bio.split('\n')[0] : leader.bio) || "Pioneering innovation at GOQii." : "Pioneering innovation at GOQii."}
                         </p>
 
                         <div className="mt-auto pt-4 flex flex-col gap-4 border-t border-slate-100 dark:border-slate-800/50 w-full">
                           <div className="flex flex-wrap gap-2">
-                            {(leader.tags || ["Health Tech", "Innovation"]).map((tag: string) => (
-                              <span key={tag} className="px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          
-                          <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                            {leader.location || "Mumbai • Global"}
-                          </div>
+                             {(leader.tags || ["Health Tech", "Innovation"]).slice(0, 2).map((tag: string) => (
+                               <span key={tag} className="px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">
+                                 {tag}
+                               </span>
+                             ))}
+                           </div>
+                           
+                           <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                             <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                             {leader.location || "Mumbai • Global"}
+                           </div>
                         </div>
                       </div>
-                    </>
-                  )}
-                </motion.div>
-              ))}
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>
