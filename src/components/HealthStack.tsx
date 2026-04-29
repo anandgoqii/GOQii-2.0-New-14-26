@@ -75,7 +75,7 @@ export const HealthStack = () => {
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <h2 className="text-[10px] font-medium tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">Scene — The GOQii Ecosystem</h2>
+          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">Scene — The GOQii Ecosystem</p>
           <h3 className="font-display mb-6 tracking-tight">A Connected Intelligence System for Health</h3>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Every component works together to track, understand, and improve human health continuously.

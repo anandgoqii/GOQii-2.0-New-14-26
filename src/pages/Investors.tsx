@@ -88,10 +88,8 @@ export const Investors = () => {
               Headquartered in Silicon Valley, we have established a strong presence across key global markets.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-lg mx-auto">
             {[
-              { country: "India", city: "Mumbai", desc: "Primary engineering and operations hub serving one of the world's largest health markets." },
-              { country: "United Kingdom", city: "London", desc: "Strategic center for European expansion and public health partnerships." },
               { country: "United States", city: "Menlo Park", desc: "Global headquarters and innovation center in the heart of Silicon Valley." }
             ].map((loc, idx) => (
               <motion.div

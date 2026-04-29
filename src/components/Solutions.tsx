@@ -66,7 +66,8 @@ export const Solutions = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 tracking-tight">Industry Solutions</h2>
+          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">Industry Solutions</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight text-slate-900 dark:text-white">Built for Every Stakeholder</h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
             Built for Every Healthcare Stakeholder. Scalable, AI-driven solutions that deliver measurable health outcomes.
           </p>

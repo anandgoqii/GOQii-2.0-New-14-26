@@ -48,14 +48,13 @@ export const AppEcosystem = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-6"
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Smartphone className="w-8 h-8 text-primary" />
-            <h2 className="font-display font-bold tracking-tight">The GOQii App</h2>
-          </div>
-          <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed">
-            Purpose-Driven Intelligence. Connect your biological signals to daily behavioral action.
+          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">The GOQii Lifecycle</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight text-slate-900 dark:text-white">Seamless Digital Health Experience</h2>
+          <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed text-lg">
+            Connect your biological signals to daily behavioral action through our award-winning app ecosystem.
           </p>
         </motion.div>
 

@@ -70,15 +70,6 @@ export const Footer = () => {
               <Link to="/trust-center" className="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1">Trust Center</Link>
               <Link to="/privacy" className="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1">Privacy Policy</Link>
               <Link to="/terms" className="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-all duration-300 hover:translate-x-1">Terms of Service</Link>
-              <a href="mailto:security@goqii.com" className="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-all duration-300">security@goqii.com</a>
-            </div>
-            <div className="mt-8">
-              <h4 className="text-slate-900 dark:text-white text-[10px] font-medium tracking-[2px] mb-6 uppercase max-w-none">CONTACT</h4>
-              <div className="flex flex-col gap-3">
-                <a href="mailto:corporate@goqii.com" className="text-slate-500 dark:text-slate-400 text-sm hover:text-primary transition-all duration-300">corporate@goqii.com</a>
-                <p className="text-slate-500 dark:text-slate-400 text-sm">Menlo Park, California, USA</p>
-                <p className="text-slate-500 dark:text-slate-400 text-sm">Mumbai, India | London, UK</p>
-              </div>
             </div>
           </div>
         </div>

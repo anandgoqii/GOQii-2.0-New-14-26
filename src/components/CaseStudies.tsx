@@ -54,10 +54,11 @@ export const CaseStudies = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-6"
+          className="text-center mb-16"
         >
-          <h2 className="font-display font-bold mb-6 tracking-tight">Real Case Studies, Real Results.</h2>
-          <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">Evidence of Impact</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight text-slate-900 dark:text-white">Real Case Studies, Real Results</h2>
+          <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed text-lg">
             From improving chronic disease management to scaling public health initiatives, our dynamic motivation model delivers measurable clinical outcomes today.
           </p>
         </motion.div>

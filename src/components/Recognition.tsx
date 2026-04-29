@@ -30,7 +30,8 @@ export const Recognition = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Recognized Globally</h2>
+          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">Global Recognition</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">Excellence and Innovation</h2>
           <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-light">
             Our commitment to innovation and impact has been recognized by leading global organizations and media.
           </p>

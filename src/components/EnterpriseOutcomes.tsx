@@ -35,7 +35,8 @@ export const EnterpriseOutcomes = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-display font-bold mb-4 tracking-tight">Driving Measurable Health & Business Outcomes</h2>
+          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">Measurable Impact</p>
+          <h2 className="font-display font-bold mb-4 tracking-tight text-3xl md:text-5xl text-slate-900 dark:text-white">Driving Measurable Health & Business Outcomes</h2>
           <div className="h-1.5 w-24 bg-primary mx-auto rounded-full" />
         </motion.div>
 

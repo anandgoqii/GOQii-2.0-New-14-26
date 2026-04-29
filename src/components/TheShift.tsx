@@ -59,9 +59,9 @@ export const TheShift = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-6"
         >
-          <p className="small font-medium uppercase tracking-widest text-primary mb-4 mx-auto">The Shift</p>
-          <h2 className="font-display tracking-tight text-slate-900 dark:text-white mb-6">
-            From Reactive Care <br />
+          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 mx-auto">The Shift</p>
+          <h2 className="font-display tracking-tight text-3xl md:text-6xl text-slate-900 dark:text-white mb-6 font-bold">
+            From Reactive care <br />
             <span className="gradient-text">to Continuous Health</span>
           </h2>
           

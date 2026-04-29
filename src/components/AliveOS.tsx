@@ -175,7 +175,7 @@ export const AliveOS = () => {
         className="text-center mb-8 px-4 z-10 relative"
       >
         <h2 className="font-display mb-[10px] tracking-tight">ALIVE O.S.</h2>
-        <p className="text-primary font-medium tracking-[0.1em] uppercase text-[10px] mb-[20px] max-w-none mx-auto">A.L.I.V.E = Artificial Life Intelligence for Vitality Enhancement</p>
+        <p className="text-primary font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-[10px] md:text-sm mb-4 max-w-none mx-auto">A.L.I.V.E = Artificial Life Intelligence for Vitality Enhancement</p>
         <p className="opacity-70 max-w-2xl mx-auto leading-relaxed">The Intelligence Layer Behind GOQii. Five interconnected pillars working in harmony to optimize your biological and cognitive potential.</p>
       </motion.div>
 
