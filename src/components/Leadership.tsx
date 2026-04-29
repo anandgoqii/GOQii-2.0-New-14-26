@@ -70,7 +70,7 @@ He built Jefferies India's Equity Capital Markets (ECM) desk from zero to a lead
   { 
     name: "Piyush Karnani", 
     role: "Chief Business Officer", 
-    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", 
+    image: "https://appcdn.goqii.com/storeimg/92516_1776770962.jpg", 
     bio: `23+ years across banking, insurance, and healthtech. Launched industry-first contactless and wearable payment solutions. Ex-Marsh, Standard Chartered, Barclays, Citibank.`,
     longBio: `Senior business leader with 23+ years spanning banking, insurance, and healthtech. At GOQii, Piyush leads P&L ownership and the banking, insurance, payments, and strategic initiatives verticals — building alliances with banks, fintechs, insurers, and governments. He launched industry-first contactless and wearable payment solutions and led global expansion at GOQii. Previously VP of Digital Insurance & Consumer Business at Marsh & McLennan (country head), Head of Consumer Banking Sales & Liabilities at Standard Chartered Bank, Regional Head at Barclays, and Bancassurance roles at Citibank. A specialist in strategic partnerships, payments ecosystems, and embedded finance across global markets.`,
     tags: ["Banking & Insurance", "Payments", "Strategic Partnerships"],
@@ -100,7 +100,7 @@ He built Jefferies India's Equity Capital Markets (ECM) desk from zero to a lead
   { 
     name: "Kamal Chandran", 
     role: "Chief Compliance & HR Officer", 
-    image: "https://storage.googleapis.com/ksabupatest/2026/02/11/n2s3j/q3yh7jm2qs.webp", 
+    image: "https://appcdn.goqii.com/storeimg/81122_1776771043.jpeg", 
     bio: `HR leader, talent strategist, and NLP Life Performance Coach. Leads compliance and people strategy across GOQii and nCORE. Ex-Accenture, ScaleneWorks. IIM Nagpur alumna.`,
     longBio: `HR leader, talent strategist, and NLP Life Performance Coach driving people and AI synergy at GOQii. Kamal leads the company's compliance and human resources function, with a career spanning Accenture (Talent Acquisition Delivery Lead — Product Industry), ScaleneWorks (VP RPO Head), and senior HR business partner roles. Simultaneously serves as Group Head Human Resources at nCORE Games. Specialises in strategic HR planning, talent acquisition, employee relations, diversity and inclusion, succession planning, and coaching. An IIM Nagpur alumna, she brings a rare combination of enterprise rigour and startup agility to building GOQii's people infrastructure.`,
     tags: ["HR Strategy", "Talent & Culture", "Compliance"],
@@ -110,11 +110,44 @@ He built Jefferies India's Equity Capital Markets (ECM) desk from zero to a lead
 ];
 
 const BOARD = [
-  { name: "Bala Deshpande", role: "Director", image: "https://appcdn.goqii.com/storeimg/40814_1775053051.jpg" },
-  { name: "Amit Singhal", role: "Director", image: "https://appcdn.goqii.com/storeimg/98313_1775053077.jpg" },
-  { name: "Dr. Christine Li", role: "Director", image: "https://appcdn.goqii.com/storeimg/57121_1775053095.jpg" },
-  { name: "Pravin Gandhi", role: "Director", image: "https://appcdn.goqii.com/storeimg/24219_1775109984.jpg" },
-  { name: "Vishal Gondal", role: "Director", image: "https://goqiimum.s3.ap-south-1.amazonaws.com/sanjivani/assets/images/Team-Vishal.png" },
+  { 
+    name: "Bala Deshpande", 
+    role: "MD, MegaDelta Capital", 
+    image: "https://appcdn.goqii.com/storeimg/40814_1775053051.jpg",
+    bio: "Two decades in venture from ICICI Venture to NEA India. Backed India's first internet IPO and first news channel. Independent director at Info Edge.",
+    longBio: "One of India's most respected venture investors with nearly two decades spanning early-stage and growth capital. Started at ICICI Venture in 2001, then joined NEA to lead their India platform for 10 years. Played an instrumental role in India's first Internet IPO, first 24-hour news channel, and first payments tech company. Independent board member of Info Edge Ltd — a multi-billion-dollar category leader.",
+    tags: ["Venture Capital", "Consumer Tech"],
+    location: "Mumbai",
+    footerLine: "MD at MegaDelta Capital · Info Edge Director · ICICI Venture"
+  },
+  { 
+    name: "Dr. Christine Li", 
+    role: "VP, Mitsui Healthcare", 
+    image: "https://appcdn.goqii.com/storeimg/4498_1776772013.jpg",
+    bio: "Physician-turned-strategist at Mitsui's global healthcare platform. Previously Parkway Pantai and IHH. HBS MBA; MBBS NUS.",
+    tags: ["Healthcare Strategy", "HCIT"],
+    location: "Singapore",
+    footerLine: "Mitsui & Co · Harvard Business School · NUS Medicine"
+  },
+  { 
+    name: "Pravin Gandhi", 
+    role: "GP, Seedfund", 
+    image: "https://appcdn.goqii.com/storeimg/58104_1776771948.jpg",
+    bio: "Founding figure of India's tech and VC ecosystem. 40+ years across Hinditron and Seedfund. Former TiE Mumbai President.",
+    tags: ["Venture Capital", "Startups"],
+    location: "Mumbai",
+    footerLine: "Founding Figure of India's VC Ecosystem · Seedfund"
+  },
+  { 
+    name: "Vishal Gondal", 
+    role: "Founder & CEO", 
+    image: "https://goqiimum.s3.ap-south-1.amazonaws.com/sanjivani/assets/images/Team-Vishal.png",
+    bio: "Father of Indian gaming. Sold Indiagames to Walt Disney. Now pioneering preventive health at the intersection of AI, coaching, and the metaverse.",
+    longBio: "A leading global figure at the intersection of healthcare, gaming, and entrepreneurship. As Founder and CEO of GOQii, he has transformed preventive healthcare by integrating AI, technology, and gamification across India, the UK, and the Middle East. \n\nKnown globally as the \"Father of the Indian Gaming Industry,\" his early success with Indiagames culminated in its acquisition by The Walt Disney Company; he subsequently launched nCore Games, creator of FAU-G. Organises Mumbai Hacks for healthcare AI innovation. An avid marathon runner, trekker, and skydiver.",
+    tags: ["Preventive Healthcare", "AI & Tech", "Gaming"],
+    location: "Mumbai · Global",
+    footerLine: "25+ Years in Tech & Health · Indiagames → Disney · GOQii"
+  },
 ];
 
 const INVESTORS = [
@@ -134,7 +167,7 @@ const ADVISORS = [
     name: "Yat Siu", 
     role: "Co-Founder & Executive Chairman", 
     company: "Animoca Brands",
-    image: "https://websitecdn.goqii.com/images/profileimg/investor_yatsiu.png",
+    image: "https://appcdn.goqii.com/storeimg/43195_1776772142.jpg",
     bio: "Asia's leading Web3 entrepreneur. Built Outblaze to 75M users, sold to IBM, co-founded Animoca Brands — 500+ portfolio investments in digital property rights. Recently secured HKMA stablecoin licence.",
     tags: ["Web3", "Gaming"],
     location: "Hong Kong",
@@ -144,7 +177,7 @@ const ADVISORS = [
     name: "Desmond Lin", 
     role: "PE & VC Investor", 
     company: "Eos Venture Partners",
-    image: "https://websitecdn.goqii.com/images/profileimg/investor_desmond.png",
+    image: "https://appcdn.goqii.com/storeimg/60127_1776772180.jpg",
     bio: "Insurtech and healthtech investor spanning Swiss Re, Longreach Group, and Eos Ventures. Deep capital markets expertise across Greater China.",
     tags: ["Insurtech", "PE / VC"],
     location: "Hong Kong",
@@ -154,7 +187,7 @@ const ADVISORS = [
     name: "Rich Robinson", 
     role: "Entrepreneur-in-Residence", 
     company: "Animoca Brands",
-    image: "https://websitecdn.goqii.com/images/profileimg/investor_rich.png",
+    image: "https://appcdn.goqii.com/storeimg/8353_1776772221.jpg",
     bio: "30 years across Asia's tech waves from Web 1.0 to Web3. 8 startups; 3 public exits. Peking University professor. Rare connector across Silicon Valley and Asia.",
     tags: ["Web3", "Startups"],
     location: "HK · Bali · Beijing",
@@ -165,7 +198,7 @@ const ADVISORS = [
     name: "Prof Vincent Sai", 
     role: "Group CEO & Partner", 
     company: "Modality Partnership (NHS)",
-    image: "https://websitecdn.goqii.com/images/profileimg/investor_vincent.png",
+    image: "https://appcdn.goqii.com/storeimg/15436_1776772268.jpg",
     bio: "Scaled the UK's largest NHS GP super-partnership to 12M+ patients across 55+ sites. Honorary Professor at UCL. GOQii's NHS clinical outcomes anchor.",
     tags: ["NHS", "Digital Health"],
     location: "London",
@@ -186,7 +219,7 @@ const ADVISORS = [
     name: "Lauren Selig", 
     role: "Founder & CEO", 
     company: "Shake and Bake Productions",
-    image: "https://websitecdn.goqii.com/images/profileimg/investor_lauren.png",
+    image: "https://appcdn.goqii.com/storeimg/66343_1776772329.png",
     bio: "Executive producer of Hacksaw Ridge, Rocketman, and Wheel of Time. Emmy winner. Investor in A16z and Vaxxinity. XPRIZE board member.",
     tags: ["Entertainment", "Venture"],
     location: "Los Angeles",
@@ -197,7 +230,7 @@ const ADVISORS = [
     name: "Manoj Narender Madnani", 
     role: "President", 
     company: "GasEntec · Beacon Media",
-    image: "https://websitecdn.goqii.com/images/profileimg/investor_manoj.png",
+    image: "https://appcdn.goqii.com/storeimg/67810_1776772436.jpg",
     bio: "$20B+ in global transactions across energy, infrastructure, and media. Brought enterprise AI to UAE and GCC. YPO member. Babson Trustee.",
     tags: ["Investments", "GCC / MENA"],
     location: "Dubai",
@@ -216,10 +249,11 @@ const ADVISORS = [
   },
   { 
     name: "Bala Deshpande", 
-    role: "Managing Director", 
+    role: "MD, MegaDelta Capital", 
     company: "MegaDelta Capital",
     image: "https://appcdn.goqii.com/storeimg/40814_1775053051.jpg",
-    bio: "Two decades in venture from ICICI Venture to NEA India. Backed India's first internet IPO, first news channel, and first payments company. Independent director at Info Edge.",
+    bio: "Two decades in venture from ICICI Venture to NEA India. Backed India's first internet IPO and first news channel. Independent director at Info Edge.",
+    longBio: "One of India's most respected venture investors with nearly two decades spanning early-stage and growth capital. Started at ICICI Venture in 2001, then joined NEA to lead their India platform for 10 years. Played an instrumental role in India's first Internet IPO, first 24-hour news channel, and first payments tech company. Independent board member of Info Edge Ltd — a multi-billion-dollar category leader.",
     tags: ["Venture Capital", "Consumer Tech"],
     location: "Mumbai",
     region: "INDIA"
@@ -228,7 +262,7 @@ const ADVISORS = [
     name: "Pravin Gandhi", 
     role: "General Partner", 
     company: "Seedfund",
-    image: "https://appcdn.goqii.com/storeimg/24219_1775109984.jpg",
+    image: "https://appcdn.goqii.com/storeimg/58104_1776771948.jpg",
     bio: "Founding figure of India's tech and VC ecosystem. 40+ years across Hinditron, Infinity Ventures, and Seedfund. Former TiE Mumbai President and TiE Global Trustee.",
     tags: ["Early Stage VC", "India Ecosystem"],
     location: "Mumbai",
@@ -239,7 +273,7 @@ const ADVISORS = [
     name: "Christine Li", 
     role: "VP Strategy & Operations", 
     company: "MBK Healthcare (Mitsui & Co.)",
-    image: "https://appcdn.goqii.com/storeimg/57121_1775053095.jpg",
+    image: "https://appcdn.goqii.com/storeimg/4498_1776772013.jpg",
     bio: "Physician-turned-strategist at Mitsui's global healthcare investment platform. Previously Parkway Pantai and IHH. UHT advisory board. HBS MBA; MBBS NUS.",
     tags: ["Healthcare Strategy", "HCIT"],
     location: "Singapore",
@@ -614,18 +648,18 @@ export const Leadership = () => {
             <div className="popup-wrapper">
               <motion.div
                 layoutId={`card-${selectedLeader.name}`}
-                className="popup-container w-full max-w-2xl p-6 md:p-8 bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl relative flex flex-col border border-slate-200 dark:border-slate-800 mx-4"
+                className="popup-container w-full max-w-lg p-6 md:p-7 bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl relative flex flex-col border border-slate-200 dark:border-slate-800 mx-4"
               >
                 <button 
                   onClick={() => setSelectedLeader(null)}
-                  className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors z-50 border border-slate-200 dark:border-white/10"
+                  className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors z-50 border border-slate-200 dark:border-white/10"
                 >
                   <X className="w-4 h-4" />
                 </button>
 
                 {/* Header: Circle Image + Info */}
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-slate-100 dark:border-slate-800 shrink-0 shadow-lg">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-5 mb-6">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-slate-100 dark:border-slate-800 shrink-0 shadow-lg">
                     <motion.img 
                       layoutId={`image-${selectedLeader.name}`}
                       src={selectedLeader.image} 
@@ -638,22 +672,22 @@ export const Leadership = () => {
                   <div className="text-center md:text-left pt-1">
                     <motion.h5 
                       layoutId={`card-name-${selectedLeader.name}`} 
-                      className="text-2xl md:text-3xl font-display font-bold text-slate-900 dark:text-white mb-1 tracking-tight"
+                      className="text-xl md:text-2xl font-display font-bold text-slate-900 dark:text-white mb-0.5 tracking-tight"
                     >
                       {selectedLeader.name}
                     </motion.h5>
-                    <motion.div layoutId={`card-role-container-${selectedLeader.name}`} className="mb-4">
-                      <p className="text-primary font-bold text-lg leading-none mb-1">
+                    <motion.div layoutId={`card-role-container-${selectedLeader.name}`} className="mb-3">
+                      <p className="text-primary font-bold text-sm md:text-base leading-none mb-1">
                         {selectedLeader.role}
                       </p>
-                      <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">
-                        GOQii Inc.
+                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                        {selectedLeader.company || "GOQii Inc."}
                       </p>
                     </motion.div>
 
                     <div className="flex flex-wrap justify-center md:justify-start gap-1.5">
                       {(selectedLeader.tags || ["Health Tech", "Innovation"]).map((tag: string) => (
-                        <span key={tag} className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary uppercase tracking-tight">
+                        <span key={tag} className="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-bold text-primary uppercase tracking-tight">
                           {tag}
                         </span>
                       ))}
@@ -662,22 +696,22 @@ export const Leadership = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="h-px w-full bg-slate-200 dark:bg-slate-800 mb-8" />
+                <div className="h-px w-full bg-slate-200 dark:bg-slate-800 mb-6" />
 
                 {/* Body Content */}
-                <div className="overflow-y-auto max-h-[35vh] md:max-h-[40vh] pr-4 custom-scrollbar mb-8">
+                <div className="overflow-y-auto max-h-[30vh] md:max-h-[35vh] pr-3 custom-scrollbar mb-6">
                   <div className="prose prose-sm prose-slate dark:prose-invert max-w-none">
-                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap text-sm md:text-base font-light">
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap text-[13px] md:text-sm font-light">
                       {selectedLeader.longBio || selectedLeader.bio}
                     </p>
                   </div>
                 </div>
 
                 {/* Divider */}
-                <div className="h-px w-full bg-slate-200 dark:bg-slate-800 mb-6" />
+                <div className="h-px w-full bg-slate-200 dark:bg-slate-800 mb-5" />
 
                 {/* Footer Metadata */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] font-bold uppercase tracking-widest">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-[9px] font-bold uppercase tracking-widest">
                   <div className="text-primary/80">
                     {selectedLeader.footerLine || "GOQii · Leading Health Innovation"}
                   </div>
