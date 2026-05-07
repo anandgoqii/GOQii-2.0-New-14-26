@@ -98,15 +98,13 @@ export const Sanjeevini = () => {
 
         {/* Final CTA */}
         <div className="flex justify-center">
-          <a 
-            href="https://goqii.com/sanjeevini"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link 
+            to="/sanjeevini"
             className="px-10 py-5 button-primary flex items-center gap-3 group shadow-2xl shadow-primary/20 transition-all duration-300 hover:scale-105 text-lg"
           >
             Explore Sanjeevini
             <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

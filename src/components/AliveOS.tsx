@@ -1,395 +1,239 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Dna, 
-  UserCircle, 
-  Watch, 
-  BrainCircuit, 
-  Navigation, 
-  X,
-  Zap
+  Database, 
+  Cpu, 
+  Brain, 
+  Activity, 
+  Route, 
+  Plus, 
+  Minus,
+  Sparkles,
+  ArrowDown
 } from 'lucide-react';
 
-interface PillarNode {
+interface ArchLayer {
   id: string;
   title: string;
-  content: string;
-  extendedContent: string;
+  subtitle: string;
+  description: string;
+  items: string[];
   icon: React.ReactNode;
-  position: 'top' | 'left' | 'right' | 'bottom' | 'orbit';
   color: string;
+  isBehavioral?: boolean;
+  stats?: { label: string; value: string }[];
 }
 
-const PILLARS: PillarNode[] = [
+const ARCH_LAYERS: ArchLayer[] = [
   {
-    id: 'genomics',
-    title: 'Predictive Genomics',
-    content: 'Understand your body at a molecular level.',
-    extendedContent: 'By analyzing your unique genetic markers and combining them with real-time biomarkers, ALIVE O.S. predicts potential health risks before they manifest, allowing for truly personalized preventative care.',
-    icon: <Dna className="w-6 h-6" />,
-    position: 'top',
-    color: 'from-accent-blue to-accent-teal',
+    id: 'input',
+    title: 'Input Layer',
+    subtitle: 'Multimodal Data Capture',
+    description: 'Continuous streams of biological and behavioral data points processed in real-time.',
+    items: ['Wearables & IoT', 'Blood Biomarkers', 'Clinical Genomics', 'Lifestyle Logging'],
+    icon: <Database className="w-6 h-6" />,
+    color: 'from-blue-500/20 to-cyan-500/20',
   },
   {
-    id: 'avatars',
-    title: 'AI Avatar',
-    content: 'Your living digital health twin.',
-    extendedContent: 'Your digital avatar is a living model of your physiological state. It simulates the impact of nutrition, sleep, and exercise on your specific biology, allowing you to "test drive" lifestyle changes.',
-    icon: <UserCircle className="w-6 h-6" />,
-    position: 'left',
-    color: 'from-accent-blue to-indigo-600',
+    id: 'behavioral',
+    title: 'Behavioral Engine',
+    subtitle: 'Proprietary Motivation Core',
+    isBehavioral: true,
+    description: 'The foundation of GOQii. 10+ years of proprietary IP in habit formation and neurocoding.',
+    items: ['Dynamic Motivation Logic', 'Behavioral Neurocoding', 'Reward Tokenomics', 'Social Graph Analysis'],
+    icon: <Brain className="w-8 h-8" />,
+    color: 'from-primary/20 to-primary-dark/20',
   },
   {
-    id: 'wearables',
-    title: 'Sentient Wearables',
-    content: 'Devices that understand your biological needs.',
-    extendedContent: 'Moving beyond simple step counting, our sentient ecosystem interprets heart rate variability, skin conductance, and movement patterns to understand your stress levels and recovery needs in real-time.',
-    icon: <Watch className="w-6 h-6" />,
-    position: 'right',
-    color: 'from-primary to-accent-teal',
-  },
-  {
-    id: 'neurocoding',
-    title: 'Behavioral Neurocoding',
-    content: 'The science of permanent habit transformation.',
-    extendedContent: 'Leveraging neuroplasticity and behavioral psychology, ALIVE O.S. delivers micro-nudges at the precise moment your brain is most receptive to forming new, positive neural pathways.',
-    icon: <BrainCircuit className="w-6 h-6" />,
-    position: 'bottom',
-    color: 'from-primary to-primary-dark',
+    id: 'intelligence',
+    title: 'Intelligence Layer',
+    subtitle: 'Predictive Modeling & Twin',
+    description: 'Transforming raw data into actionable biological understanding.',
+    items: ['Digital Health Twin', 'AI Risk Prediction', 'Metabolic Modeling', 'Longevity Forecasting'],
+    icon: <Cpu className="w-6 h-6" />,
+    color: 'from-purple-500/20 to-indigo-500/20',
   },
   {
     id: 'routing',
-    title: 'Quantum Health Routing',
-    content: 'Your personal health GPS, recalculating in real-time.',
-    extendedContent: 'A dynamic decision engine that processes millions of data points to route you toward your optimal health state, adjusting your daily plan based on how your body is actually responding.',
-    icon: <Navigation className="w-6 h-6" />,
-    position: 'orbit',
-    color: 'from-accent-teal to-accent-blue',
+    title: 'Routing Layer',
+    subtitle: 'Optimization & Delivery',
+    description: 'Dynamic decision engine routing every user to the optimal health intervention.',
+    items: ['Human-in-the-loop Coaching', 'Quantum Intervention Routing', 'Care Pathway Orchestration'],
+    icon: <Route className="w-6 h-6" />,
+    color: 'from-accent-teal/20 to-emerald-500/20',
   },
+  {
+    id: 'outcomes',
+    title: 'Clinical Outcomes',
+    subtitle: 'System Performance Metrics',
+    description: 'Measured biological and adherence improvements across our global user base.',
+    items: [],
+    stats: [
+      { label: 'Immune Bio-Markers', value: '+21%' },
+      { label: 'Muscle Mass Index', value: '+16%' },
+      { label: 'Cognitive Function', value: '+23%' },
+      { label: 'Standard Adherence', value: '+28%' }
+    ],
+    icon: <Activity className="w-6 h-6" />,
+    color: 'from-orange-500/20 to-red-500/20',
+  }
 ];
 
-interface ConnectionLineProps {
-  startX: number;
-  startY: number;
-  endX: number;
-  endY: number;
-  color: string;
-  delay: number;
-}
-
-const ConnectionLine: React.FC<ConnectionLineProps & { isActive?: boolean; isDimmed?: boolean }> = ({ 
-  startX, startY, endX, endY, color, delay, isActive, isDimmed 
-}) => {
-  return (
-    <svg 
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-      className="absolute inset-0 w-full h-full pointer-events-none z-0"
-    >
-      <defs>
-        <linearGradient id={`grad-${delay}`} x1={startX} y1={startY} x2={endX} y2={endY} gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="currentColor" stopOpacity="0.05" />
-          <stop offset="50%" stopColor={color} stopOpacity={isActive ? 0.8 : 0.2} />
-          <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
-        </linearGradient>
-      </defs>
-      
-      {/* Base Line */}
-      <motion.line
-        x1={startX}
-        y1={startY}
-        x2={endX}
-        y2={endY}
-        stroke={`url(#grad-${delay})`}
-        strokeWidth="0.25"
-        strokeDasharray="0 3"
-        strokeLinecap="round"
-        className="text-black dark:text-white"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: isDimmed ? 0.1 : 1 }}
-        transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-      />
-
-      {/* Flowing Light Pulse (Node -> Core) */}
-      <motion.circle
-        r="0.6"
-        className="fill-primary dark:fill-white"
-        initial={{ offsetDistance: "0%", opacity: 0 }}
-        animate={{ 
-          offsetDistance: ["100%", "0%"],
-          opacity: [0, 1, 0]
-        }}
-        transition={{ 
-          duration: 3, 
-          repeat: Infinity, 
-          delay: delay % 2,
-          ease: "linear"
-        }}
-        style={{
-          offsetPath: `path('M ${endX} ${endY} L ${startX} ${startY}')`,
-          offsetRotate: "auto",
-          filter: `drop-shadow(0 0 4px ${color})`
-        }}
-      />
-    </svg>
-  );
-};
-
 export const AliveOS = () => {
-  const [selectedPillar, setSelectedPillar] = useState<PillarNode | null>(null);
-  const [hoveredPillar, setHoveredPillar] = useState<string | null>(null);
-  const [isDark, setIsDark] = useState(true);
-  const sectionRef = useRef(null);
-
-  React.useEffect(() => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'class') {
-          setIsDark(document.documentElement.classList.contains('dark'));
-        }
-      });
-    });
-    observer.observe(document.documentElement, { attributes: true });
-    setIsDark(document.documentElement.classList.contains('dark'));
-    return () => observer.disconnect();
-  }, []);
-
-  const RADIUS = 30; // Percentage from center
-  const CENTER = 50; // Center percentage
-
-  const getPillarCoords = (index: number) => {
-    const total = PILLARS.length;
-    // Start from top (-90 degrees)
-    const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
-    return {
-      x: CENTER + RADIUS * Math.cos(angle),
-      y: CENTER + RADIUS * Math.sin(angle)
-    };
-  };
+  const [expandedLayer, setExpandedLayer] = useState<string | null>('behavioral');
 
   return (
-    <section className="relative flex flex-col items-center justify-start overflow-hidden bg-[var(--bg-primary)] transition-colors duration-300 w-full">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="text-center mb-8 px-4 z-10 relative"
-      >
-        <h2 className="font-display mb-[10px] tracking-tight">ALIVE O.S.</h2>
-        <p className="text-primary font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-[10px] md:text-sm mb-4 max-w-none mx-auto">A.L.I.V.E = Artificial Life Intelligence for Vitality Enhancement</p>
-        <p className="opacity-70 max-w-2xl mx-auto leading-relaxed">The Intelligence Layer Behind GOQii. Five interconnected pillars working in harmony to optimize your biological and cognitive potential.</p>
-      </motion.div>
+    <section id="alive-os" className="py-24 bg-white dark:bg-[#020617] transition-colors duration-300 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
 
-      <div ref={sectionRef} className="relative w-full max-w-4xl aspect-square flex items-center justify-center -mt-[40px] md:-mt-[120px]">
-        {/* Connection Lines */}
-        <div className="hidden md:block absolute inset-0">
-          {PILLARS.map((pillar, idx) => {
-            const coords = getPillarCoords(idx);
-            const isActive = hoveredPillar === pillar.id;
-            const isDimmed = hoveredPillar !== null && hoveredPillar !== pillar.id;
-            return (
-              <ConnectionLine 
-                key={`line-${pillar.id}`}
-                startX={CENTER}
-                startY={CENTER}
-                endX={coords.x}
-                endY={coords.y}
-                color={pillar.color.split(' ')[0].replace('from-', '')}
-                delay={idx * 0.2}
-                isActive={isActive}
-                isDimmed={isDimmed}
-              />
-            );
-          })}
-        </div>
-
-        {/* Core Node */}
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div 
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="relative z-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary font-bold text-[10px] tracking-[0.3em] uppercase mb-6">
+            <Sparkles className="w-3 h-3" />
+            System Architecture
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+            ALIVE O.S.
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Artificial Life Intelligence for Vitality Enhancement. A vertically integrated system that connects biological signals to behavioral triggers.
+          </p>
+
           <motion.div 
-            animate={{ 
-              scale: hoveredPillar ? 1.05 : [1, 1.04, 1],
-              boxShadow: hoveredPillar 
-                ? (isDark ? "0 0 80px rgba(34,211,238,0.4)" : "0 0 60px rgba(34,211,238,0.2)")
-                : (isDark 
-                    ? ["0 0 30px rgba(34,211,238,0.1)", "0 0 60px rgba(34,211,238,0.2)", "0 0 30px rgba(34,211,238,0.1)"]
-                    : ["0 0 20px rgba(34,211,238,0.05)", "0 0 40px rgba(34,211,238,0.1)", "0 0 20px rgba(34,211,238,0.05)"])
-            }}
-            transition={{ 
-              scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-              boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-            }}
-            className="w-40 h-40 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary via-accent-teal to-accent-blue p-[2px] flex items-center justify-center relative"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="mt-12 mb-20 relative group"
           >
-            {/* Inner Breathing Glow */}
-            <motion.div 
-              animate={{ opacity: isDark ? [0.2, 0.4, 0.2] : [0.1, 0.2, 0.1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute inset-0 rounded-full bg-primary/20 blur-3xl"
-            />
-            
-            <div className="w-full h-full rounded-full bg-white dark:bg-[#020617] flex flex-col items-center justify-center text-center p-4 md:p-6 border border-black/5 dark:border-white/10 relative z-10 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-black/5 dark:from-white/5 to-transparent pointer-events-none" />
+            <div className="aspect-[21/9] w-full rounded-[2.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 relative">
               <img 
-                src={isDark ? "https://appcdn.goqii.com/user/storeimg/98354_1775837380.png" : "https://appcdn.goqii.com/user/storeimg/94402_1775837615.png"} 
-                alt="GOQii Logo" 
-                className="h-8 md:h-12 w-auto object-contain mb-2 md:mb-3"
-                referrerPolicy="no-referrer"
+                src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop" 
+                alt="ALIVE O.S. Architecture Visualization"
+                className="w-full h-full object-cover opacity-50 dark:opacity-30 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               />
-              <h3 className="text-xl md:text-2xl font-semibold tracking-tight">ALIVE O.S.</h3>
-              <p className="text-[8px] md:text-[10px] text-primary/60 uppercase tracking-[0.3em] mt-1 md:mt-2 max-w-none">Intelligence Core</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#020617] via-transparent to-transparent" />
+              
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+                  <div className="px-6 py-2 rounded-full bg-primary text-white font-bold text-xs tracking-widest uppercase shadow-xl">
+                    System Architecture Visualization
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative Tech Elements */}
+              <div className="absolute top-8 left-8 flex gap-2">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-primary/40" />
+                <div className="w-2 h-2 rounded-full bg-primary/20" />
+              </div>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Pillars */}
-        {PILLARS.map((pillar, idx) => {
-          const coords = getPillarCoords(idx);
-          const isDimmed = hoveredPillar !== null && hoveredPillar !== pillar.id;
-          const isActive = hoveredPillar === pillar.id;
+        {/* Stacked Layers */}
+        <div className="flex flex-col gap-4 relative">
+          {ARCH_LAYERS.map((layer, idx) => (
+            <React.Fragment key={layer.id}>
+              {/* Connector Arrow */}
+              {idx > 0 && (
+                <div className="flex justify-center -my-2 relative z-20">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    className="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-400 shadow-sm"
+                  >
+                    <ArrowDown className="w-4 h-4" />
+                  </motion.div>
+                </div>
+              )}
 
-          return (
-            <motion.div
-              key={pillar.id}
-              initial={{ 
-                opacity: 1, 
-                scale: 1, 
-                x: "-50%", 
-                y: "-50%",
-                left: `${coords.x}%`,
-                top: `${coords.y}%`
-              }}
-              animate={{ 
-                opacity: isDimmed ? 0.3 : 1, 
-                scale: isActive ? 1.15 : 1,
-              }}
-              transition={{ 
-                opacity: { duration: 0.4 },
-                scale: { duration: 0.4 },
-              }}
-              className="absolute z-30 hidden md:block"
-              style={{ transform: "translate(-50%, -50%)" }}
-            >
-              {/* Floating Animation Wrapper */}
               <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  delay: idx * 0.7,
-                  ease: "easeInOut"
-                }}
-                onMouseEnter={() => setHoveredPillar(pillar.id)}
-                onMouseLeave={() => setHoveredPillar(null)}
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className={`group relative rounded-[2rem] border transition-all duration-500 ${
+                  expandedLayer === layer.id 
+                    ? 'border-primary/50 shadow-2xl shadow-primary/10' 
+                    : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 dark:bg-slate-900/40'
+                } ${layer.isBehavioral ? 'bg-gradient-to-br from-white via-slate-50 to-primary/5 dark:from-slate-900 dark:via-[#0f172a] dark:to-primary/10' : 'bg-white dark:bg-slate-900/80 overflow-hidden'}`}
               >
-                <button
-                  onClick={() => setSelectedPillar(pillar)}
-                  className="group flex flex-col items-center cursor-pointer"
+                {/* Layer Highlight Bar */}
+                <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${layer.color.replace('from-', 'from-').replace('to-', 'to-')}`} />
+
+                <div 
+                  className="p-8 cursor-pointer"
+                  onClick={() => setExpandedLayer(expandedLayer === layer.id ? null : layer.id)}
                 >
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${pillar.color} p-[1px] mb-4 shadow-2xl transition-all duration-500 ${isActive ? 'shadow-primary/40 scale-110' : 'shadow-black/10 dark:shadow-black/50'}`}>
-                    <div className="w-full h-full rounded-2xl bg-white dark:bg-[#020617] flex items-center justify-center border border-black/5 dark:border-white/5">
-                      <div className={`group-hover:scale-110 transition-transform duration-500 ${isActive ? 'text-primary' : 'text-slate-600 dark:text-slate-300'}`}>
-                        {pillar.icon}
+                  <div className="flex items-start justify-between gap-6">
+                    <div className="flex items-start gap-6">
+                      <div className={`mt-1 p-3 rounded-2xl bg-gradient-to-br ${layer.color} ${layer.isBehavioral ? 'text-primary' : 'text-slate-600 dark:text-slate-300'}`}>
+                        {layer.icon}
+                      </div>
+                      <div>
+                        <h3 className={`text-xl font-bold font-display ${layer.isBehavioral ? 'text-primary' : 'text-slate-900 dark:text-white'}`}>
+                          {layer.title}
+                          {layer.isBehavioral && <span className="ml-3 text-[10px] tracking-[0.2em] font-bold text-primary/60 uppercase">Proprietary Core</span>}
+                        </h3>
+                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">{layer.subtitle}</p>
                       </div>
                     </div>
+                    <div className="p-2 rounded-full border border-slate-200 dark:border-slate-800 group-hover:border-primary/30 transition-colors">
+                      {expandedLayer === layer.id ? <Minus className="w-4 h-4 text-primary" /> : <Plus className="w-4 h-4 text-slate-400" />}
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <span className={`text-[10px] font-bold tracking-[0.2em] transition-colors duration-300 text-center whitespace-nowrap ${isActive ? 'text-primary' : 'opacity-60'}`}>
-                      {pillar.title.toUpperCase()}
-                    </span>
-                    {isActive && (
-                      <motion.div 
-                        layoutId="active-indicator"
-                        className="h-0.5 w-8 bg-primary mt-1 rounded-full"
-                      />
+
+                  <AnimatePresence>
+                    {expandedLayer === layer.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 mt-6">
+                          <p className={`text-lg mb-8 leading-relaxed ${layer.isBehavioral ? 'text-slate-700 dark:text-slate-200' : 'text-slate-500 dark:text-slate-400'}`}>
+                            {layer.description}
+                          </p>
+                          
+                          {layer.id === 'outcomes' ? (
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                              {layer.stats?.map((stat) => (
+                                <div key={stat.label} className="text-center p-4 rounded-2xl bg-slate-100 dark:bg-black/20 border border-slate-200 dark:border-white/5">
+                                  <div className="text-3xl md:text-4xl font-display font-bold text-primary mb-1">{stat.value}</div>
+                                  <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold leading-tight">{stat.label}</div>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              {layer.items.map((item) => (
+                                <div key={item} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-100 dark:bg-black/20 border border-slate-200 dark:border-white/5">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
+                                  <span className="text-sm font-medium text-slate-600 dark:text-slate-300">{item}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
                     )}
-                  </div>
-                </button>
+                  </AnimatePresence>
+                </div>
               </motion.div>
-            </motion.div>
-          );
-        })}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
-
-      {/* Mobile Pillars */}
-      <div className="md:hidden w-full px-6 space-y-4 mt-8">
-        {PILLARS.map((pillar) => (
-          <div 
-            key={pillar.id}
-            onClick={() => setSelectedPillar(pillar)}
-            className="bg-card p-5 rounded-2xl flex items-center gap-4 active:scale-95 transition-transform cursor-pointer"
-          >
-            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${pillar.color} flex items-center justify-center shadow-lg text-white`}>
-              {pillar.icon}
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-sm tracking-tight">{pillar.title}</span>
-              <span className="text-[10px] opacity-50 uppercase tracking-wider">Tap to explore</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <AnimatePresence>
-        {selectedPillar && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-xl"
-            onClick={() => setSelectedPillar(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, y: 40, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 40, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-glass border border-black/5 dark:border-white/10 rounded-[2rem] md:rounded-[2.5rem] max-w-2xl w-full p-8 md:p-12 relative shadow-2xl overflow-hidden"
-              onClick={e => e.stopPropagation()}
-            >
-              {/* Decorative Background Glow */}
-              <div className={`absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-br ${selectedPillar.color} opacity-20 blur-[80px]`} />
-              
-              <button 
-                onClick={() => setSelectedPillar(null)} 
-                className="absolute top-8 right-8 opacity-50 hover:opacity-100 transition-opacity p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
-              <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${selectedPillar.color} flex items-center justify-center mb-8 shadow-2xl text-white`}>
-                {React.cloneElement(selectedPillar.icon as any, { className: "w-10 h-10" })}
-              </div>
-              
-              <h2 className="font-display mb-6 tracking-tight">{selectedPillar.title}</h2>
-              <div className="h-1 w-20 bg-gradient-to-r from-primary via-accent-teal to-transparent mb-8 rounded-full" />
-              
-              <p className="text-primary mb-8 font-medium leading-relaxed italic max-w-none">
-                "{selectedPillar.content}"
-              </p>
-              
-              <p className="opacity-70 text-lg leading-relaxed max-w-none">
-                {selectedPillar.extendedContent}
-              </p>
-
-              <div className="mt-12 flex justify-end">
-                <button 
-                  onClick={() => setSelectedPillar(null)}
-                  className="px-8 py-3 button-primary font-medium"
-                >
-                  Close Exploration
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
+

@@ -170,14 +170,12 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
           <NavDropdown title="Enterprise Solutions" sections={enterpriseLinks} isScrolled={isScrolled} />
           <NavDropdown title="Personal Solutions" sections={personalLinks} isScrolled={isScrolled} />
           
-          <a 
-            href="https://goqii.com/sanjeevini" 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <Link 
+            to="/sanjeevini" 
             className="hover:text-primary transition-all duration-300 hover:-translate-y-0.5 opacity-70 hover:opacity-100 tracking-wide font-medium"
           >
             Sanjeevini
-          </a>
+          </Link>
 
           <a 
             href="https://store.goqii.com/" 
@@ -284,15 +282,13 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
                 </AnimatePresence>
               </div>
 
-              <a 
-                href="https://goqii.com/sanjeevini" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/sanjeevini" 
                 className="text-sm font-medium tracking-wide hover:text-primary transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Sanjeevini
-              </a>
+              </Link>
 
               <a 
                 href="https://store.goqii.com/" 
