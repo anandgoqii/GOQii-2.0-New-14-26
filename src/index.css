@@ -233,14 +233,14 @@
 /* Custom Mobile Hero Enhancements */
 @media (max-width: 768px) {
   .hero-headline {
-    animation: mobile-hero-in 160ms ease-out both;
+    animation: hero-in 180ms ease-out both;
     font-weight: 800;
     letter-spacing: -0.03em;
     opacity: 1;
     will-change: opacity, transform;
   }
 
-  @keyframes mobile-hero-in {
+  @keyframes hero-in {
     from {
       opacity: 0;
       transform: translateY(4px);
@@ -253,7 +253,7 @@
 
   /* Reduce slide transition chaos */
   .hero-slide {
-    transition-duration: 400ms !important;
+    transition-duration: 600ms !important;
   }
 
   /* Ensure content stays readable */
@@ -261,6 +261,26 @@
     position: relative;
     z-index: 2;
   }
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .hero-scrim {
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 18, 32, 0) 0%,
+    rgba(11, 18, 32, 0.7) 100%
+  );
 }
 
 .trust-bar {

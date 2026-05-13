@@ -148,7 +148,6 @@ export const Home = () => {
       <div id="hero" className="snap-section">
         <div className="parallax-bg bg-gradient-to-b from-primary/10 to-transparent" />
         <Hero onPathSelect={handlePathChange} />
-        <TrustBar />
       </div>
       
       <div id="theshift" className="snap-section">

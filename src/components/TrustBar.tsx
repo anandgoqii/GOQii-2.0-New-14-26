@@ -18,25 +18,31 @@ export const TrustBar = () => {
         etc.
       */}
       <div className="flex items-center gap-10 overflow-x-auto no-scrollbar py-2">
-        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em] whitespace-nowrap">
-          Trusted by Fortune 500 & Global Health Organizations
+        <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.25em] whitespace-nowrap opacity-80">
+          Enterprise Trust & Compliance
         </span>
         <div className="flex items-center gap-10">
-          <div className="flex items-center gap-2 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-            <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center text-[8px] text-white font-bold">X</div>
-            <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400">XPRIZE Healthspan</span>
+          <div className="flex items-center gap-2 grayscale-0 opacity-100 transition-all cursor-default scale-105">
+            <div className="w-5 h-5 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center border border-white/20 dark:border-slate-800">
+              <span className="text-[9px] text-white dark:text-slate-900 font-black">X</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] font-bold text-slate-800 dark:text-white leading-none tracking-tight">XPRIZE</span>
+              <span className="text-[7px] font-semibold text-primary uppercase tracking-tighter leading-none">Healthspan Semifinalist</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-            <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400">HIPAA Compliant</span>
+          <div className="h-3 w-px bg-slate-200 dark:bg-white/10" />
+          <div className="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-wider">HIPAA COMPLIANT</span>
           </div>
-          <div className="flex items-center gap-2 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-            <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400">ISO 27001</span>
+          <div className="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-wider">ISO 27001</span>
           </div>
-          <div className="flex items-center gap-2 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-            <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400">GDPR Ready</span>
+          <div className="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-wider">GDPR READY</span>
           </div>
-          <div className="flex items-center gap-2 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-            <span className="text-[11px] font-bold text-slate-600 dark:text-slate-400">SOC 2</span>
+          <div className="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 tracking-wider">SOC 2 TYPE II</span>
           </div>
         </div>
       </div>

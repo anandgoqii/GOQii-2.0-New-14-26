@@ -5,11 +5,11 @@ const CLINICAL_DATA = [
   {
     metric: '+28%',
     label: 'Digital Adherence',
-    text: 'Behavioral compliance at scale — the foundation behind every outcome.'
+    text: 'Behavioral compliance at scale — the foundation behind every health outcome.'
   },
   {
     metric: '+21%',
-    label: 'Immune Function',
+    label: 'Immune Resilience',
     text: 'Measured improvements in overall immune health and resilience.'
   },
   {
@@ -19,7 +19,7 @@ const CLINICAL_DATA = [
   },
   {
     metric: '+16%',
-    label: 'Muscularity',
+    label: 'Muscularity Index',
     text: 'Improved strength, movement, and healthy body composition.'
   }
 ];

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useModals } from '../context/ModalContext';
 
+import { TrustBar } from './TrustBar';
+
 const AUDIENCES = ['Insurance', 'Pharma', 'Hospitals', 'Corporate', 'Individuals'];
 
 const AUDIENCE_LINKS: Record<string, string> = {
@@ -139,8 +141,10 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
             {/* Gradient Overlays */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/20 to-transparent dark:from-slate-950/80 dark:via-slate-950/40" />
             
+            <div className="hero-scrim" />
+            
             {isMobile && (
-              <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white opacity-80" />
             )}
             
             {/* Enhanced mobile vignette for 1st and 2nd slides to improve dark text readability */}
@@ -302,43 +306,26 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                       </Link>
                     )
                   )}
-
-                  {isMobile && (
-                    <motion.div
-                      animate={{ y: [0, 6, 0] }}
-                      transition={{ repeat: Infinity, duration: 2 }}
-                      className="text-[12px] text-[#94A3B8] mt-4 mx-auto font-medium"
-                    >
-                      ↓ Swipe to explore
-                    </motion.div>
-                  )}
                 </div>
 
-                {/* Proof & Trust (Only on Slide 1 and Desktop) */}
-                {slide.showExtras && !isMobile && (
-                  <div className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-8">
-                    <div className="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-2 text-slate-500 dark:text-slate-400 font-medium text-xs md:text-sm">
-                      <span>5M+ Lives Covered</span>
-                      <span className="opacity-30 hidden sm:inline">•</span>
-                      <span>300+ Enterprise Partners</span>
-                      <span className="opacity-30 hidden sm:inline">•</span>
-                      <span>40% Cost Reduction</span>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 opacity-80">
-                      <span>HIPAA Compliant</span>
-                      <span className="opacity-30 hidden sm:inline">•</span>
-                      <span>ISO 27001</span>
-                      <span className="opacity-30 hidden sm:inline">•</span>
-                      <span>GDPR</span>
-                      <span className="opacity-30 hidden sm:inline">•</span>
-                      <span>DPDPA Ready</span>
-                    </div>
-                  </div>
+                {isMobile && (
+                  <motion.div
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="text-[12px] text-[#94A3B8] mt-4 mx-auto font-medium"
+                  >
+                    ↓ Swipe to explore
+                  </motion.div>
                 )}
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
+
+      {/* Trust Bar Integration */}
+      <div className="absolute bottom-16 md:bottom-24 left-0 w-full z-20">
+        <TrustBar />
       </div>
 
       {/* Navigation Controls */}

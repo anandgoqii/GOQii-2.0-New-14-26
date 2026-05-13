@@ -39,9 +39,9 @@ const ARCH_LAYERS: ArchLayer[] = [
     title: 'Behavioral Neurocoding',
     subtitle: 'Core Moat Layer',
     isBehavioral: true,
-    description: '10 years of proprietary IP — the behavioral engine no competitor can replicate.',
+    description: 'Fueled by 10 years of proprietary behavioral science and longevity engagement data, our neurocoding engine is the foundational intelligence layer that competitors cannot replicate.',
     items: [
-      'Built on a decade of behavioral data, coaching intelligence, and neurocoding research that powers long-term human adherence and engagement at scale.'
+      'Built on a decade of deep behavioral intelligence, coaching insights, and proprietary motivation research that powers long-term human adherence and engagement at scale.'
     ],
     icon: <Brain className="w-8 h-8" />,
     color: 'from-primary/30 to-primary-dark/30',
@@ -72,9 +72,9 @@ const ARCH_LAYERS: ArchLayer[] = [
     items: [],
     stats: [
       { label: 'Digital Adherence', value: '+28%' },
-      { label: 'Immune Function', value: '+21%' },
+      { label: 'Immune Resilience', value: '+21%' },
       { label: 'Cognitive Performance', value: '+23%' },
-      { label: 'Muscularity', value: '+16%' }
+      { label: 'Muscularity Index', value: '+16%' }
     ],
     icon: <Activity className="w-6 h-6" />,
     color: 'from-orange-500/20 to-red-500/20',
