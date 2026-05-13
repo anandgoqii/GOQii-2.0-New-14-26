@@ -28,27 +28,29 @@ const ARCH_LAYERS: ArchLayer[] = [
   {
     id: 'input',
     title: 'Input Layer',
-    subtitle: 'Multimodal Data Capture',
-    description: 'Continuous streams of biological and behavioral data points processed in real-time.',
+    subtitle: 'Data Capture',
+    description: 'Wearables • Labs • Genomics • Lifestyle Data',
     items: ['Wearables & IoT', 'Blood Biomarkers', 'Clinical Genomics', 'Lifestyle Logging'],
     icon: <Database className="w-6 h-6" />,
     color: 'from-blue-500/20 to-cyan-500/20',
   },
   {
-    id: 'behavioral',
-    title: 'Behavioral Engine',
-    subtitle: 'Proprietary Motivation Core',
+    id: 'neurocoding',
+    title: 'Behavioral Neurocoding',
+    subtitle: 'Core Moat Layer',
     isBehavioral: true,
-    description: 'The foundation of GOQii. 10+ years of proprietary IP in habit formation and neurocoding.',
-    items: ['Dynamic Motivation Logic', 'Behavioral Neurocoding', 'Reward Tokenomics', 'Social Graph Analysis'],
+    description: '10 years of proprietary IP — the behavioral engine no competitor can replicate.',
+    items: [
+      'Built on a decade of behavioral data, coaching intelligence, and neurocoding research that powers long-term human adherence and engagement at scale.'
+    ],
     icon: <Brain className="w-8 h-8" />,
-    color: 'from-primary/20 to-primary-dark/20',
+    color: 'from-primary/30 to-primary-dark/30',
   },
   {
     id: 'intelligence',
     title: 'Intelligence Layer',
-    subtitle: 'Predictive Modeling & Twin',
-    description: 'Transforming raw data into actionable biological understanding.',
+    subtitle: 'Predictive Modeling',
+    description: 'AI Prediction • Digital Twin • Risk Modeling',
     items: ['Digital Health Twin', 'AI Risk Prediction', 'Metabolic Modeling', 'Longevity Forecasting'],
     icon: <Cpu className="w-6 h-6" />,
     color: 'from-purple-500/20 to-indigo-500/20',
@@ -56,23 +58,23 @@ const ARCH_LAYERS: ArchLayer[] = [
   {
     id: 'routing',
     title: 'Routing Layer',
-    subtitle: 'Optimization & Delivery',
-    description: 'Dynamic decision engine routing every user to the optimal health intervention.',
+    subtitle: 'Intervention Delivery',
+    description: 'Interventions • Coaching • Protocol Optimization',
     items: ['Human-in-the-loop Coaching', 'Quantum Intervention Routing', 'Care Pathway Orchestration'],
     icon: <Route className="w-6 h-6" />,
     color: 'from-accent-teal/20 to-emerald-500/20',
   },
   {
     id: 'outcomes',
-    title: 'Clinical Outcomes',
-    subtitle: 'System Performance Metrics',
+    title: 'Outcomes Layer',
+    subtitle: 'Measured Human Success',
     description: 'Measured biological and adherence improvements across our global user base.',
     items: [],
     stats: [
-      { label: 'Immune Bio-Markers', value: '+21%' },
-      { label: 'Muscle Mass Index', value: '+16%' },
-      { label: 'Cognitive Function', value: '+23%' },
-      { label: 'Standard Adherence', value: '+28%' }
+      { label: 'Digital Adherence', value: '+28%' },
+      { label: 'Immune Function', value: '+21%' },
+      { label: 'Cognitive Performance', value: '+23%' },
+      { label: 'Muscularity', value: '+16%' }
     ],
     icon: <Activity className="w-6 h-6" />,
     color: 'from-orange-500/20 to-red-500/20',
@@ -80,7 +82,7 @@ const ARCH_LAYERS: ArchLayer[] = [
 ];
 
 export const AliveOS = () => {
-  const [expandedLayer, setExpandedLayer] = useState<string | null>('behavioral');
+  const [expandedLayer, setExpandedLayer] = useState<string | null>('neurocoding');
 
   return (
     <section id="alive-os" className="py-24 bg-white dark:bg-[#020617] transition-colors duration-300 relative overflow-hidden">
@@ -102,8 +104,8 @@ export const AliveOS = () => {
           <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-slate-900 dark:text-white mb-4">
             ALIVE O.S.
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Artificial Life Intelligence for Vitality Enhancement. A vertically integrated system that connects biological signals to behavioral triggers.
+          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed italic font-medium">
+            Behavioral Intelligence • Longevity Infrastructure • Proprietary Neurocoding
           </p>
 
           <motion.div 
@@ -112,28 +114,12 @@ export const AliveOS = () => {
             viewport={{ once: true }}
             className="mt-12 mb-20 relative group"
           >
-            <div className="aspect-video md:aspect-[21/9] w-full rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 relative">
+            <div className="aspect-video md:aspect-[21/9] w-full rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 relative shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop" 
-                alt="ALIVE O.S. Architecture Visualization"
-                className="w-full h-full object-cover opacity-50 dark:opacity-30 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                src="https://appcdn.goqii.com/storeimg/97510_1778669923.png" 
+                alt="ALIVE O.S. Architecture"
+                className="w-full h-full object-contain group-hover:scale-105 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#020617] via-transparent to-transparent" />
-              
-              <div className="absolute inset-0 flex items-center justify-center p-4">
-                <div className="p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-                  <div className="px-4 md:px-6 py-2 rounded-full bg-primary text-white font-bold text-[10px] md:text-xs tracking-widest uppercase shadow-xl text-center">
-                    System Architecture Visualization
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative Tech Elements */}
-              <div className="absolute top-4 left-4 md:top-8 md:left-8 flex gap-2">
-                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary animate-pulse" />
-                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary/40" />
-                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary/20" />
-              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -164,7 +150,7 @@ export const AliveOS = () => {
                   expandedLayer === layer.id 
                     ? 'border-primary/50 shadow-2xl shadow-primary/10' 
                     : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-slate-50/50 dark:bg-slate-900/40'
-                } ${layer.isBehavioral ? 'bg-gradient-to-br from-white via-slate-50 to-primary/5 dark:from-slate-900 dark:via-[#0f172a] dark:to-primary/10' : 'bg-white dark:bg-slate-900/80 overflow-hidden'}`}
+                } ${layer.isBehavioral ? 'bg-gradient-to-br from-white via-slate-50 to-primary/5 dark:from-slate-900 dark:via-[#0f172a] dark:to-primary/10 border-primary/20 ring-1 ring-primary/10' : 'bg-white dark:bg-slate-900/80 overflow-hidden'}`}
               >
                 {/* Layer Highlight Bar */}
                 <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${layer.color.replace('from-', 'from-').replace('to-', 'to-')}`} />
@@ -179,9 +165,9 @@ export const AliveOS = () => {
                         {layer.icon}
                       </div>
                       <div>
-                        <h3 className={`text-xl font-bold font-display ${layer.isBehavioral ? 'text-primary' : 'text-slate-900 dark:text-white'}`}>
+                        <h3 className={`text-xl md:text-2xl font-bold font-display ${layer.isBehavioral ? 'text-primary' : 'text-slate-900 dark:text-white'}`}>
                           {layer.title}
-                          {layer.isBehavioral && <span className="ml-3 text-[10px] tracking-[0.2em] font-bold text-primary/60 uppercase">Proprietary Core</span>}
+                          {layer.isBehavioral && <span className="ml-3 text-[10px] tracking-[0.2em] font-bold text-primary/60 uppercase">The Proprietary Moat</span>}
                         </h3>
                         <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide">{layer.subtitle}</p>
                       </div>
@@ -191,7 +177,7 @@ export const AliveOS = () => {
                     </div>
                   </div>
 
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {expandedLayer === layer.id && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
@@ -200,25 +186,29 @@ export const AliveOS = () => {
                         className="overflow-hidden"
                       >
                         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 mt-6">
-                          <p className={`text-lg mb-8 leading-relaxed ${layer.isBehavioral ? 'text-slate-700 dark:text-slate-200' : 'text-slate-500 dark:text-slate-400'}`}>
+                          <p className={`text-lg mb-8 leading-relaxed max-w-2xl ${layer.isBehavioral ? 'text-slate-800 dark:text-slate-100 font-medium' : 'text-slate-500 dark:text-slate-400'}`}>
                             {layer.description}
                           </p>
                           
                           {layer.id === 'outcomes' ? (
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                               {layer.stats?.map((stat) => (
-                                <div key={stat.label} className="text-center p-4 rounded-2xl bg-slate-100 dark:bg-black/20 border border-slate-200 dark:border-white/5">
-                                  <div className="text-3xl md:text-4xl font-display font-bold text-primary mb-1">{stat.value}</div>
+                                <div key={stat.label} className="text-center p-6 rounded-2xl bg-white dark:bg-black/20 border border-slate-200 dark:border-white/5 shadow-sm">
+                                  <div className="text-4xl md:text-5xl font-display font-extrabold text-slate-900 dark:text-white mb-2">{stat.value}</div>
                                   <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold leading-tight">{stat.label}</div>
                                 </div>
                               ))}
                             </div>
                           ) : (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 gap-4">
                               {layer.items.map((item) => (
-                                <div key={item} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-100 dark:bg-black/20 border border-slate-200 dark:border-white/5">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-                                  <span className="text-sm font-medium text-slate-600 dark:text-slate-300">{item}</span>
+                                <div key={item} className={`flex items-start gap-4 px-6 py-5 rounded-xl border ${layer.isBehavioral ? 'bg-primary/5 border-primary/10' : 'bg-slate-100 dark:bg-black/20 border-slate-200 dark:border-white/5'}`}>
+                                  {layer.isBehavioral ? (
+                                    <Sparkles className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                                  ) : (
+                                    <div className="w-2 h-2 rounded-full bg-primary/40 shrink-0 mt-2" />
+                                  )}
+                                  <span className={`text-sm md:text-base font-medium ${layer.isBehavioral ? 'text-slate-900 dark:text-slate-200 leading-relaxed' : 'text-slate-600 dark:text-slate-300'}`}>{item}</span>
                                 </div>
                               ))}
                             </div>
@@ -232,6 +222,19 @@ export const AliveOS = () => {
             </React.Fragment>
           ))}
         </div>
+
+        {/* Full-Width Moat Band */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 p-8 md:p-12 rounded-[2.5rem] bg-slate-900 border border-white/5 text-center relative overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <p className="text-xl md:text-2xl lg:text-3xl font-display font-medium text-white max-w-4xl mx-auto leading-tight">
+            “GOQii’s behavioral engine is built on a decade of proprietary <span className="text-primary italic">neurocoding research</span> — the foundation layer that powers long-term adherence, engagement, and measurable health outcomes at scale.”
+          </p>
+        </motion.div>
       </div>
     </section>
   );

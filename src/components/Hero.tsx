@@ -45,7 +45,7 @@ const SLIDES = [
   },
   {
     id: 'individual',
-    title: <>Your Personal Health<br /><span className="gradient-text">Operating System</span></>,
+    title: <>Operating System for<br /><span className="gradient-text">Human Longevity</span></>,
     subtext: 'Personalized AI coaching and wearable integration tailored to your unique biology.',
     primaryCTA: { label: 'Start Your Journey', link: '#path-selector' },
     image: 'https://appcdn.goqii.com/storeimg/57121_1776245812.jpg',
@@ -162,7 +162,7 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
               animate={{ opacity: 1, x: 0, y: 0 }}
               exit={{ opacity: 0, x: isMobile ? 0 : 20, y: isMobile ? -20 : 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex flex-col gap-4 md:gap-6"
+              className="hero-slide flex flex-col gap-4 md:gap-6"
               drag={isMobile ? "x" : false}
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={(_, info) => {
@@ -172,164 +172,170 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                 }
               }}
             >
-              {/* Badge Row (Only on Slide 1 and Desktop) */}
-              {slide.showExtras && !isMobile && (
-                <div className="flex flex-wrap items-center gap-4 mb-1 md:mb-2">
-                  <span className="px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">
-                    THE OPERATING SYSTEM FOR HUMAN LONGEVITY
-                  </span>
+              <div className="hero-slide__content flex flex-col gap-4 md:gap-6">
+                {/* XPRIZE Badge Row */}
+                <div className="flex flex-wrap items-center gap-4 mb-1 md:mb-2 justify-center md:justify-start">
+                  <div className="px-3 md:px-4 py-1.5 rounded-full bg-slate-900 border border-white/10 text-white text-[10px] md:text-xs font-bold tracking-[0.1em] flex items-center gap-2 shadow-2xl animate-pulse">
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                    XPRIZE Healthspan Semifinalist
+                  </div>
+                  {!isMobile && (
+                    <span className="px-3 md:px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] md:text-xs font-bold tracking-[0.1em] uppercase">
+                      Operating System for Human Longevity
+                    </span>
+                  )}
                 </div>
-              )}
 
-              <h1 className={`hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white ${
-                isMobile 
-                  ? 'text-[34px] font-semibold leading-[1.1] tracking-[-0.5px]' 
-                  : 'text-[42px] sm:text-[42px] md:text-[52px]'
-              } ${
-                isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]' : ''
-              }`}>
-                {slide.title}
-              </h1>
+                <h1 className={`hero-headline hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white ${
+                  isMobile 
+                    ? 'text-[34px] font-semibold leading-[1.1] tracking-[-0.5px]' 
+                    : 'text-[42px] sm:text-[42px] md:text-[52px]'
+                } ${
+                  isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]' : ''
+                }`}>
+                  {slide.title}
+                </h1>
 
-              <p className={`hero-subtext leading-relaxed max-w-2xl text-slate-600 dark:text-slate-300 ${
-                isMobile 
-                  ? 'text-[15px] text-[#64748B] line-clamp-2 mx-auto' 
-                  : 'text-sm md:text-base lg:text-lg'
-              } ${
-                isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_1px_5px_rgba(255,255,255,0.5)]' : ''
-              }`}>
-                {isMobile && currentSlide === 0 
-                  ? 'AI-powered preventive healthcare for individuals and enterprises.' 
-                  : slide.subtext}
-              </p>
+                <p className={`hero-subtext leading-relaxed max-w-2xl text-slate-600 dark:text-slate-300 ${
+                  isMobile 
+                    ? 'text-[15px] text-[#64748B] line-clamp-2 mx-auto' 
+                    : 'text-sm md:text-base lg:text-lg'
+                } ${
+                  isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_1px_5px_rgba(255,255,255,0.5)]' : ''
+                }`}>
+                  {isMobile && currentSlide === 0 
+                    ? 'AI-powered preventive healthcare for individuals and enterprises.' 
+                    : slide.subtext}
+                </p>
 
-              {/* Audience Selector (Only on Slide 1 and Desktop) */}
-              {slide.showExtras && !isMobile && (
-                <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mt-1 md:mt-2">
-                  {AUDIENCES.map((audience) => (
-                    <button
-                      key={audience}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedAudience(audience);
-                      }}
-                      className={`px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full text-[10px] md:text-[11px] font-medium transition-all duration-300 border ${
-                        selectedAudience === audience
-                          ? 'bg-primary border-transparent text-white shadow-lg shadow-primary/20'
-                          : 'bg-slate-100 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/10'
+                {/* Audience Selector (Only on Slide 1 and Desktop) */}
+                {slide.showExtras && !isMobile && (
+                  <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mt-1 md:mt-2">
+                    {AUDIENCES.map((audience) => (
+                      <button
+                        key={audience}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedAudience(audience);
+                        }}
+                        className={`px-2.5 md:px-3.5 py-1 md:py-1.5 rounded-full text-[10px] md:text-[11px] font-medium transition-all duration-300 border ${
+                          selectedAudience === audience
+                            ? 'bg-primary border-transparent text-white shadow-lg shadow-primary/20'
+                            : 'bg-slate-100 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/10'
+                        }`}
+                      >
+                        {audience}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* CTAs */}
+                <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 ${isMobile ? 'mt-5 w-full' : 'mt-4'}`}>
+                  {slide.primaryCTA.isDemo ? (
+                    <button 
+                      onClick={openDemoModal}
+                      className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                        isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
                       }`}
                     >
-                      {audience}
+                      <span>{isMobile ? 'Request Access' : `Request ${selectedAudience === 'Individuals' ? 'Access' : 'a Demo'}`}</span>
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
-                  ))}
-                </div>
-              )}
-
-              {/* CTAs */}
-              <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 ${isMobile ? 'mt-5 w-full' : 'mt-4'}`}>
-                {slide.primaryCTA.isDemo ? (
-                  <button 
-                    onClick={openDemoModal}
-                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
-                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
-                    }`}
-                  >
-                    <span>{isMobile ? 'Request Access' : `Request ${selectedAudience === 'Individuals' ? 'Access' : 'a Demo'}`}</span>
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                ) : slide.primaryCTA.link?.startsWith('http') ? (
-                  <a 
-                    href={slide.primaryCTA.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
-                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
-                    }`}
-                  >
-                    {slide.primaryCTA.label}
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                ) : slide.primaryCTA.link?.startsWith('#') ? (
-                  <button 
-                    onClick={() => handleHashClick(slide.primaryCTA.link!, slide.id)}
-                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
-                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
-                    }`}
-                  >
-                    {slide.primaryCTA.label}
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                ) : (
-                  <Link 
-                    to={slide.primaryCTA.link || '#'}
-                    className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
-                      isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
-                    }`}
-                  >
-                    {slide.primaryCTA.label}
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                )}
-                
-                {slide.secondaryCTA && !isMobile && (
-                  slide.showExtras ? (
+                  ) : slide.primaryCTA.link?.startsWith('http') ? (
                     <a 
-                      href={AUDIENCE_LINKS[selectedAudience]}
+                      href={slide.primaryCTA.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-white/20 transition-all duration-300 border border-slate-200 dark:border-white/10 hover:scale-105 min-w-[140px] text-center text-xs"
+                      className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                        isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
+                      }`}
                     >
-                      Explore {selectedAudience} Solutions
+                      {slide.primaryCTA.label}
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
-                  ) : slide.secondaryCTA.link?.startsWith('#') ? (
+                  ) : slide.primaryCTA.link?.startsWith('#') ? (
                     <button 
-                      onClick={() => handleHashClick(slide.secondaryCTA!.link!, slide.id)}
-                      className="px-5 py-2.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-white/20 transition-all duration-300 border border-slate-200 dark:border-white/10 hover:scale-105 min-w-[140px] text-center text-xs"
+                      onClick={() => handleHashClick(slide.primaryCTA.link!, slide.id)}
+                      className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                        isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
+                      }`}
                     >
-                      {slide.secondaryCTA.label}
+                      {slide.primaryCTA.label}
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   ) : (
                     <Link 
-                      to={slide.secondaryCTA.link}
-                      className="px-5 py-2.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-white/20 transition-all duration-300 border border-slate-200 dark:border-white/10 hover:scale-105 min-w-[140px] text-center text-xs"
+                      to={slide.primaryCTA.link || '#'}
+                      className={`button-primary flex items-center gap-2 group shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105 justify-center ${
+                        isMobile ? 'w-full h-[50px] text-sm rounded-full' : 'px-5 py-2.5 min-w-[140px] text-xs'
+                      }`}
                     >
-                      {slide.secondaryCTA.label}
+                      {slide.primaryCTA.label}
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                  )
-                )}
+                  )}
+                  
+                  {slide.secondaryCTA && !isMobile && (
+                    slide.showExtras ? (
+                      <a 
+                        href={AUDIENCE_LINKS[selectedAudience]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-white/20 transition-all duration-300 border border-slate-200 dark:border-white/10 hover:scale-105 min-w-[140px] text-center text-xs"
+                      >
+                        Explore {selectedAudience} Solutions
+                      </a>
+                    ) : slide.secondaryCTA.link?.startsWith('#') ? (
+                      <button 
+                        onClick={() => handleHashClick(slide.secondaryCTA!.link!, slide.id)}
+                        className="px-5 py-2.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-white/20 transition-all duration-300 border border-slate-200 dark:border-white/10 hover:scale-105 min-w-[140px] text-center text-xs"
+                      >
+                        {slide.secondaryCTA.label}
+                      </button>
+                    ) : (
+                      <Link 
+                        to={slide.secondaryCTA.link}
+                        className="px-5 py-2.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-white/20 transition-all duration-300 border border-slate-200 dark:border-white/10 hover:scale-105 min-w-[140px] text-center text-xs"
+                      >
+                        {slide.secondaryCTA.label}
+                      </Link>
+                    )
+                  )}
 
-                {isMobile && (
-                  <motion.div
-                    animate={{ y: [0, 6, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="text-[12px] text-[#94A3B8] mt-4 mx-auto font-medium"
-                  >
-                    ↓ Swipe to explore
-                  </motion.div>
+                  {isMobile && (
+                    <motion.div
+                      animate={{ y: [0, 6, 0] }}
+                      transition={{ repeat: Infinity, duration: 2 }}
+                      className="text-[12px] text-[#94A3B8] mt-4 mx-auto font-medium"
+                    >
+                      ↓ Swipe to explore
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* Proof & Trust (Only on Slide 1 and Desktop) */}
+                {slide.showExtras && !isMobile && (
+                  <div className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-8">
+                    <div className="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-2 text-slate-500 dark:text-slate-400 font-medium text-xs md:text-sm">
+                      <span>5M+ Lives Covered</span>
+                      <span className="opacity-30 hidden sm:inline">•</span>
+                      <span>300+ Enterprise Partners</span>
+                      <span className="opacity-30 hidden sm:inline">•</span>
+                      <span>40% Cost Reduction</span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 opacity-80">
+                      <span>HIPAA Compliant</span>
+                      <span className="opacity-30 hidden sm:inline">•</span>
+                      <span>ISO 27001</span>
+                      <span className="opacity-30 hidden sm:inline">•</span>
+                      <span>GDPR</span>
+                      <span className="opacity-30 hidden sm:inline">•</span>
+                      <span>DPDPA Ready</span>
+                    </div>
+                  </div>
                 )}
               </div>
-
-              {/* Proof & Trust (Only on Slide 1 and Desktop) */}
-              {slide.showExtras && !isMobile && (
-                <div className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-8">
-                  <div className="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-2 text-slate-500 dark:text-slate-400 font-medium text-xs md:text-sm">
-                    <span>5M+ Lives Covered</span>
-                    <span className="opacity-30 hidden sm:inline">•</span>
-                    <span>300+ Enterprise Partners</span>
-                    <span className="opacity-30 hidden sm:inline">•</span>
-                    <span>40% Cost Reduction</span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 opacity-80">
-                    <span>HIPAA Compliant</span>
-                    <span className="opacity-30 hidden sm:inline">•</span>
-                    <span>ISO 27001</span>
-                    <span className="opacity-30 hidden sm:inline">•</span>
-                    <span>GDPR</span>
-                    <span className="opacity-30 hidden sm:inline">•</span>
-                    <span>DPDPA Ready</span>
-                  </div>
-                </div>
-              )}
             </motion.div>
           </AnimatePresence>
         </div>

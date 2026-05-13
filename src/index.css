@@ -229,3 +229,84 @@
     scrollbar-width: none;
   }
 }
+
+/* Custom Mobile Hero Enhancements */
+@media (max-width: 768px) {
+  .hero-headline {
+    animation: mobile-hero-in 160ms ease-out both;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    opacity: 1;
+    will-change: opacity, transform;
+  }
+
+  @keyframes mobile-hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduce slide transition chaos */
+  .hero-slide {
+    transition-duration: 400ms !important;
+  }
+
+  /* Ensure content stays readable */
+  .hero-slide__content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+}
+
+.trust-bar img {
+  height: 20px;
+  opacity: 0.55;
+  filter: grayscale(1);
+  transition: opacity 180ms ease;
+}
+
+.trust-bar img:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .trust-bar {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-inline: 1rem;
+    scrollbar-width: none;
+  }
+  
+  .trust-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trust-bar img {
+    flex-shrink: 0;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-headline {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

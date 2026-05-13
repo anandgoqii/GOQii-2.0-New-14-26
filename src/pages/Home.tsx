@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { Hero } from '../components/Hero';
+import { TrustBar } from '../components/TrustBar';
 import { TheShift } from '../components/TheShift';
 import { PathSelector } from '../components/PathSelector';
 import { AliveOS } from '../components/AliveOS';
@@ -13,6 +14,7 @@ import { HealthStack } from '../components/HealthStack';
 import { HealthEngage } from '../components/HealthEngage';
 import { Industries } from '../components/Industries';
 import { EnterpriseOutcomes } from '../components/EnterpriseOutcomes';
+import { ClinicalOutcomes } from '../components/ClinicalOutcomes';
 import { AppEcosystem } from '../components/AppEcosystem';
 import { Sanjeevini } from '../components/Sanjeevini';
 import { CaseStudies } from '../components/CaseStudies';
@@ -34,6 +36,10 @@ export const Home = () => {
   // Scroll Locking Logic
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    
+    // Only apply scroll locking on desktop to avoid UX friction on mobile
+    if (window.innerWidth < 768) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !isLocked && activePath === 'all') {
@@ -142,6 +148,7 @@ export const Home = () => {
       <div id="hero" className="snap-section">
         <div className="parallax-bg bg-gradient-to-b from-primary/10 to-transparent" />
         <Hero onPathSelect={handlePathChange} />
+        <TrustBar />
       </div>
       
       <div id="theshift" className="snap-section">
@@ -181,7 +188,7 @@ export const Home = () => {
               <Industries />
             </div>
             <div id="outcomes" className="snap-section">
-              <EnterpriseOutcomes />
+              <ClinicalOutcomes />
             </div>
             <div id="casestudies" className="snap-section">
               <CaseStudies />
@@ -199,6 +206,9 @@ export const Home = () => {
             </div>
             <div id="healthengage" className="snap-section">
               <HealthEngage />
+            </div>
+            <div id="clinical-outcomes" className="snap-section">
+              <ClinicalOutcomes />
             </div>
             <div id="app" className="snap-section">
               <AppEcosystem />
@@ -228,7 +238,7 @@ export const Home = () => {
               <Industries />
             </div>
             <div id="outcomes" className="snap-section">
-              <EnterpriseOutcomes />
+              <ClinicalOutcomes />
             </div>
             <div id="casestudies" className="snap-section">
               <CaseStudies />
@@ -256,6 +266,9 @@ export const Home = () => {
             </div>
             <div id="healthengage" className="snap-section">
               <HealthEngage />
+            </div>
+            <div id="clinical-outcomes" className="snap-section">
+              <ClinicalOutcomes />
             </div>
             <div id="app" className="snap-section">
               <AppEcosystem />
