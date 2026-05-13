@@ -40,11 +40,11 @@ export const PathSelector: React.FC<PathSelectorProps> = ({ activePath, onPathCh
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative inline-flex items-center p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full shadow-xl mb-8"
+          className="relative flex flex-col sm:flex-row items-center p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl sm:rounded-full shadow-xl mb-8 w-full max-w-lg mx-auto sm:w-auto"
         >
-          {/* Sliding Indicator */}
+          {/* Sliding Indicator (Desktop only) */}
           <motion.div
-            className="absolute inset-y-2 w-[calc(50%-8px)] bg-gradient-to-r from-primary to-accent-teal rounded-full shadow-md z-0"
+            className="absolute inset-y-2 w-[calc(50%-8px)] bg-gradient-to-r from-primary to-accent-teal rounded-full shadow-md z-0 hidden sm:block"
             initial={false}
             animate={{
               left: activePath === 'org' ? '8px' : activePath === 'ind' ? 'calc(50% + 0px)' : '8px',
@@ -56,8 +56,8 @@ export const PathSelector: React.FC<PathSelectorProps> = ({ activePath, onPathCh
           
           <button
             onClick={() => onPathChange('org')}
-            className={`relative z-10 px-8 md:px-12 py-4 rounded-full text-base md:text-lg font-medium transition-all duration-300 ${
-              activePath === 'org' ? 'text-white scale-105' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            className={`relative z-10 w-full sm:w-auto px-6 md:px-12 py-4 rounded-2xl sm:rounded-full text-base md:text-lg font-medium transition-all duration-300 ${
+              activePath === 'org' ? 'bg-primary sm:bg-transparent text-white sm:scale-105' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             For Organizations
@@ -65,8 +65,8 @@ export const PathSelector: React.FC<PathSelectorProps> = ({ activePath, onPathCh
           
           <button
             onClick={() => onPathChange('ind')}
-            className={`relative z-10 px-8 md:px-12 py-4 rounded-full text-base md:text-lg font-medium transition-all duration-300 ${
-              activePath === 'ind' ? 'text-white scale-105' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            className={`relative z-10 w-full sm:w-auto px-6 md:px-12 py-4 rounded-2xl sm:rounded-full text-base md:text-lg font-medium transition-all duration-300 ${
+              activePath === 'ind' ? 'bg-primary sm:bg-transparent text-white sm:scale-105' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             For Individuals

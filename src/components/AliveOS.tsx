@@ -112,7 +112,7 @@ export const AliveOS = () => {
             viewport={{ once: true }}
             className="mt-12 mb-20 relative group"
           >
-            <div className="aspect-[21/9] w-full rounded-[2.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 relative">
+            <div className="aspect-video md:aspect-[21/9] w-full rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 relative">
               <img 
                 src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2000&auto=format&fit=crop" 
                 alt="ALIVE O.S. Architecture Visualization"
@@ -120,19 +120,19 @@ export const AliveOS = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#020617] via-transparent to-transparent" />
               
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center p-4">
                 <div className="p-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-                  <div className="px-6 py-2 rounded-full bg-primary text-white font-bold text-xs tracking-widest uppercase shadow-xl">
+                  <div className="px-4 md:px-6 py-2 rounded-full bg-primary text-white font-bold text-[10px] md:text-xs tracking-widest uppercase shadow-xl text-center">
                     System Architecture Visualization
                   </div>
                 </div>
               </div>
 
               {/* Decorative Tech Elements */}
-              <div className="absolute top-8 left-8 flex gap-2">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <div className="w-2 h-2 rounded-full bg-primary/40" />
-                <div className="w-2 h-2 rounded-full bg-primary/20" />
+              <div className="absolute top-4 left-4 md:top-8 md:left-8 flex gap-2">
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary animate-pulse" />
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary/40" />
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary/20" />
               </div>
             </div>
           </motion.div>

@@ -21,7 +21,7 @@ const SanjeeviniPage = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-9xl font-display font-bold tracking-tighter mb-8 text-slate-900 dark:text-white"
+            className="text-5xl sm:text-7xl md:text-9xl font-display font-bold tracking-tighter mb-8 text-slate-900 dark:text-white"
           >
             Sanjeevini
           </motion.h1>
@@ -74,8 +74,8 @@ const SanjeeviniPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
             <p className="text-[10px] font-bold text-primary tracking-[0.3em] uppercase mb-4">Scientific Consortium</p>
-            <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Built by Authority</h2>
-            <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-light">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6">Built by Authority</h2>
+            <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-light text-sm md:text-base">
               Sanjeevini is the result of a multi-disciplinary partnership between India's leading research institutions and digital health pioneers.
             </p>
           </div>
@@ -227,12 +227,12 @@ const SanjeeviniPage = () => {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  className="text-6xl md:text-8xl font-display font-bold text-primary mb-4"
+                  className="text-5xl sm:text-6xl lg:text-8xl font-display font-bold text-primary mb-4"
                 >
                   {stat.val}
                 </motion.div>
-                <h3 className="text-xl font-bold mb-2">{stat.label}</h3>
-                <p className="text-slate-400 text-sm font-light uppercase tracking-widest">{stat.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold mb-2">{stat.label}</h3>
+                <p className="text-slate-400 text-xs md:text-sm font-light uppercase tracking-widest">{stat.desc}</p>
               </div>
             ))}
           </div>

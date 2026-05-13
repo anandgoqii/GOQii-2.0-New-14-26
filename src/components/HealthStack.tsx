@@ -169,11 +169,9 @@ export const HealthStack = () => {
                   {comp.description}
                 </p>
 
-                {/* Flow Indicators for Mobile/Tablet */}
+                {/* Flow Indicators - Hidden on Desktop (SVG handles it), shown on Mobile/Tablet */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:hidden">
-                  {idx < 2 && <ArrowRight className="w-5 h-5 text-primary/40" />}
-                  {idx === 2 && <ArrowDown className="w-5 h-5 text-primary/40" />}
-                  {idx > 2 && idx < 5 && <ArrowLeft className="w-5 h-5 text-primary/40" />}
+                  {idx < ECO_COMPONENTS.length - 1 && <ArrowDown className="w-5 h-5 text-primary/40" />}
                 </div>
               </motion.div>
             ))}

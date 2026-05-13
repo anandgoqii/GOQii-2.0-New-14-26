@@ -29,7 +29,7 @@ const SLIDES = [
     id: 'longevity',
     title: <>AI-Powered Longevity &<br /><span className="gradient-text">Health Intelligence</span></>,
     subtext: 'Combining genomics, digital twins, and continuous coaching to deliver measurable health improvements.',
-    primaryCTA: { label: 'Explore Sanjeevini', link: 'https://goqii.com/sanjeevini' },
+    primaryCTA: { label: 'Explore Sanjeevini', link: '/sanjeevini' },
     image: 'https://appcdn.goqii.com/storeimg/92550_1776244708.jpg',
     mobileImage: 'https://appcdn.goqii.com/storeimg/41592_1776250055.jpg',
     showExtras: false

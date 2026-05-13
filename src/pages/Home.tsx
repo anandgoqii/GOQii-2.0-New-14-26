@@ -80,25 +80,6 @@ export const Home = () => {
           });
         }
       });
-
-      // Horizontal scroll for Industries
-      const industrySection = document.querySelector(".industry-section");
-      const scrollContainer = document.querySelector(".horizontal-scroll");
-
-      if (industrySection && scrollContainer) {
-        gsap.to(scrollContainer, {
-          x: () => -(scrollContainer.scrollWidth - window.innerWidth),
-          ease: "none",
-          scrollTrigger: {
-            trigger: industrySection,
-            start: "top top",
-            end: () => "+=" + scrollContainer.scrollWidth,
-            scrub: true,
-            pin: true,
-            invalidateOnRefresh: true,
-          }
-        });
-      }
     }, mainRef);
 
     return () => ctx.revert();
