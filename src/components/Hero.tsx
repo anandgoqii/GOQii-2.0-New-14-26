@@ -138,21 +138,7 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
               className={`w-full h-full object-cover ${isMobile ? 'object-right' : ''}`}
               referrerPolicy="no-referrer"
             />
-            {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/20 to-transparent dark:from-slate-950/80 dark:via-slate-950/40" />
-            
-            <div className="hero-scrim" />
-            
-            {isMobile && (
-              <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white opacity-80" />
-            )}
-            
-            {/* Enhanced mobile vignette for 1st and 2nd slides to improve dark text readability */}
-            {isMobile && (currentSlide === 0 || currentSlide === 1) && (
-              <div className="absolute inset-0 bg-white/60 dark:bg-slate-950/40 backdrop-blur-[2px] pointer-events-none" />
-            )}
-            
-            <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent dark:from-slate-950/20" />
+            {/* Primary background overlay handled by CSS (.hero-slide::after) - Removed */}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -177,8 +163,7 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
               }}
             >
               <div className="hero-slide__content flex flex-col gap-4 md:gap-6">
-                {/* XPRIZE Badge Row */}
-                <div className="flex flex-wrap items-center gap-4 mb-1 md:mb-2 justify-center md:justify-start">
+                <div className="hero-slide__chip flex flex-wrap items-center gap-4 mb-1 md:mb-2 justify-center md:justify-start">
                   <div className="px-3 md:px-4 py-1.5 rounded-full bg-slate-900 border border-white/10 text-white text-[10px] md:text-xs font-bold tracking-[0.1em] flex items-center gap-2 shadow-2xl animate-pulse">
                     <span className="w-2 h-2 rounded-full bg-primary" />
                     XPRIZE Healthspan Semifinalist
@@ -190,22 +175,18 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                   )}
                 </div>
 
-                <h1 className={`hero-headline hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white ${
+                <h1 className={`hero-slide__headline hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white ${
                   isMobile 
                     ? 'text-[34px] font-semibold leading-[1.1] tracking-[-0.5px]' 
                     : 'text-[42px] sm:text-[42px] md:text-[52px]'
-                } ${
-                  isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]' : ''
                 }`}>
                   {slide.title}
                 </h1>
 
-                <p className={`hero-subtext leading-relaxed max-w-2xl text-slate-600 dark:text-slate-300 ${
+                <p className={`hero-slide__subheadline leading-relaxed max-w-2xl text-slate-900 dark:text-slate-100 ${
                   isMobile 
-                    ? 'text-[15px] text-[#64748B] line-clamp-2 mx-auto' 
-                    : 'text-sm md:text-base lg:text-lg'
-                } ${
-                  isMobile && (currentSlide === 0 || currentSlide === 1) ? 'drop-shadow-[0_1px_5px_rgba(255,255,255,0.5)]' : ''
+                    ? 'text-[15px] mx-auto text-slate-900' 
+                    : 'text-sm md:text-base lg:text-lg font-medium'
                 }`}>
                   {isMobile && currentSlide === 0 
                     ? 'AI-powered preventive healthcare for individuals and enterprises.' 
@@ -235,7 +216,7 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
                 )}
 
                 {/* CTAs */}
-                <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 ${isMobile ? 'mt-5 w-full' : 'mt-4'}`}>
+                <div className={`hero-slide__cta flex flex-col sm:flex-row items-start sm:items-center gap-3 ${isMobile ? 'mt-5 w-full' : 'mt-4'}`}>
                   {slide.primaryCTA.isDemo ? (
                     <button 
                       onClick={openDemoModal}

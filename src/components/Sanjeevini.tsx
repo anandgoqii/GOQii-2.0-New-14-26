@@ -55,7 +55,7 @@ export const Sanjeevini = () => {
         {/* Outcome Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {[
-            { value: '+21%', label: 'Immune Improvement', icon: <Activity className="w-6 h-6" /> },
+            { value: '+21%', label: 'Immune Resilience', icon: <Activity className="w-6 h-6" /> },
             { value: '+16%', label: 'Muscle Strength', icon: <Zap className="w-6 h-6" /> },
             { value: '+23%', label: 'Cognitive Performance', icon: <BrainCircuit className="w-6 h-6" /> },
           ].map((stat, idx) => (

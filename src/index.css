@@ -230,57 +230,125 @@
   }
 }
 
-/* Custom Mobile Hero Enhancements */
-@media (max-width: 768px) {
-  .hero-headline {
-    animation: hero-in 180ms ease-out both;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+/* =========================================
+   HERO HEADLINE ANIMATION FIX
+   ========================================= */
+
+/* Fast, confident headline entry */
+@keyframes headline-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
     opacity: 1;
-    will-change: opacity, transform;
+    transform: translateY(0);
   }
+}
 
-  @keyframes hero-in {
-    from {
-      opacity: 0;
-      transform: translateY(4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+/* Headline */
+.hero-slide__headline {
+  font-weight: 800;
+  opacity: 1;
 
-  /* Reduce slide transition chaos */
-  .hero-slide {
-    transition-duration: 600ms !important;
-  }
+  animation: headline-arrive 180ms
+    cubic-bezier(0.0, 0.0, 0.2, 1.0) both;
 
-  /* Ensure content stays readable */
+  animation-delay: 60ms;
+}
+
+.dark .hero-slide__headline {
+  /* Subtle contrast aid for dark mode without breaking gradient text */
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Supporting elements */
+.hero-slide__chip,
+.hero-slide__subheadline,
+.hero-slide__cta {
+  opacity: 1;
+
+  animation: headline-arrive 180ms
+    cubic-bezier(0.0, 0.0, 0.2, 1.0) both;
+}
+
+.dark .hero-slide__subheadline {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Stagger timing */
+.hero-slide__chip {
+  animation-delay: 20ms;
+}
+
+.hero-slide__subheadline {
+  animation-delay: 90ms;
+}
+
+.hero-slide__cta {
+  animation-delay: 130ms;
+}
+
+/* Smooth slide transition */
+.hero-slide {
+  transition: opacity 320ms
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   DARK OVERLAY SCRIM (REMOVED)
+   ========================================= */
+
+.hero-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero content above overlay */
+.hero-slide__content {
+  position: relative;
+  z-index: 3;
+  max-width: 620px;
+}
+
+/* CTA visibility */
+.hero-slide__cta {
+  position: relative;
+  z-index: 4;
+}
+
+/* =========================================
+   MOBILE FIX
+   ========================================= */
+
+@media (max-width: 767px) {
+
   .hero-slide__content {
-    position: relative;
-    z-index: 2;
+    max-width: 100%;
+  }
+
+  .hero-slide__headline {
+    font-weight: 800;
   }
 }
 
-.hero-scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
 
-.dark .hero-scrim {
-  background: linear-gradient(
-    to bottom,
-    rgba(11, 18, 32, 0) 0%,
-    rgba(11, 18, 32, 0.7) 100%
-  );
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-slide,
+  .hero-slide__headline,
+  .hero-slide__chip,
+  .hero-slide__subheadline,
+  .hero-slide__cta {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 .trust-bar {
@@ -292,6 +360,13 @@
   border-top: 1px solid rgba(255,255,255,0.06);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 4;
+}
+
+.dark .trust-bar {
+  background: rgba(11, 18, 32, 0.3);
 }
 
 .trust-bar img {
@@ -319,14 +394,5 @@
 
   .trust-bar img {
     flex-shrink: 0;
-  }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .hero-headline {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
   }
 }

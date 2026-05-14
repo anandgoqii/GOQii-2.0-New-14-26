@@ -16,12 +16,24 @@ const SanjeeviniPage = () => {
     <main className="bg-white dark:bg-[#020617] transition-colors duration-300">
       
       {/* HERO */}
-      <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden bg-white dark:bg-[#020617]">
+        <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full" />
+          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-accent-teal/5 blur-[150px] rounded-full" />
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-block px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-primary text-[10px] font-bold tracking-[0.3em] uppercase mb-10"
+          >
+            The Protocol
+          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl sm:text-7xl md:text-9xl font-display font-bold tracking-tighter mb-8 text-slate-900 dark:text-white"
+            className="text-5xl sm:text-7xl md:text-[8rem] font-display font-bold tracking-tighter mb-8 text-slate-900 dark:text-white leading-[0.9]"
           >
             Sanjeevini
           </motion.h1>
@@ -29,35 +41,42 @@ const SanjeeviniPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-2xl font-medium text-primary tracking-[0.2em] uppercase"
+            className="text-lg md:text-2xl font-medium text-primary tracking-[0.15em] uppercase mb-8"
           >
             The Science of Longevity, Rooted in India.
           </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-6 text-slate-500 dark:text-slate-400 font-light text-lg md:text-xl"
+            className="flex flex-col items-center gap-6"
           >
-            Engineered for the Future of Human Health.
-          </motion.p>
+            <p className="text-slate-500 dark:text-slate-400 font-light text-lg md:text-xl max-w-2xl">
+              Engineered for the Future of Human Health. Sanjeevini is not a wellness program — it is a clinical-grade operating system for human regeneration.
+            </p>
+            <div className="h-20 w-px bg-gradient-to-b from-primary/50 to-transparent" />
+          </motion.div>
         </div>
       </section>
 
       {/* ORIGIN STORY (Editorial) */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-900/20 px-6">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-32 bg-slate-50 dark:bg-slate-900/20 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="prose prose-slate dark:prose-invert max-w-none"
           >
-            <p className="text-sm font-bold text-primary uppercase tracking-widest mb-8">The Eternal Source</p>
-            <h2 className="text-3xl md:text-5xl font-display font-medium text-slate-900 dark:text-white leading-tight mb-12">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-px bg-primary" />
+              <p className="text-sm font-bold text-primary uppercase tracking-widest mb-0">The Eternal Source</p>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-display font-medium text-slate-900 dark:text-white leading-[1.1] mb-12 tracking-tight">
               In the Ramayana, Sanjeevini was the herb that restored life.
             </h2>
-            <div className="space-y-6 text-lg md:text-xl text-slate-600 dark:text-slate-400 font-light leading-relaxed">
+            <div className="grid md:grid-cols-2 gap-12 text-lg md:text-xl text-slate-600 dark:text-slate-400 font-light leading-relaxed">
               <p>
                 Today, we bring that ancient philosophy into the realm of modern science — combining genomics, AI, and behavioral intelligence to extend human healthspan.
               </p>
@@ -165,16 +184,19 @@ const SanjeeviniPage = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-[10px] font-bold text-primary tracking-[0.3em] uppercase mb-4">The Intelligence Foundation</p>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white leading-tight mb-8">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white leading-tight mb-6">
                 Powered by ALIVE O.S.
               </h2>
+              <p className="text-primary font-bold text-sm mb-8">
+                10 years of proprietary IP — the behavioral engine no competitor can replicate.
+              </p>
               <div className="space-y-4 mb-10">
                 {[
-                  { icon: <Dna className="w-5 h-5" />, title: "Genomics", desc: "Whole genome sequencing and blood biomarkers." },
-                  { icon: <UserCircle className="w-5 h-5" />, title: "Digital Twin", desc: "Predictive physiological modeling." },
-                  { icon: <Brain className="w-5 h-5" />, title: "Behavioral Intelligence", desc: "Neurocoding for permanent habit change." }
+                  { icon: <Dna className="w-5 h-5" />, title: "Genomics", desc: "Whole genome sequencing and multi-omic blood biomarkers." },
+                  { icon: <UserCircle className="w-5 h-5" />, title: "Digital Twin", desc: "Predictive physiological modeling built on 10B+ data points." },
+                  { icon: <Brain className="w-5 h-5" />, title: "Behavioral Intelligence", desc: "Proprietary neurocoding for permanent habit change." }
                 ].map((item) => (
-                  <div key={item.title} className="flex gap-4 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors">
+                  <div key={item.title} className="flex gap-4 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors bg-slate-50/50 dark:bg-white/5">
                     <div className="mt-1 text-primary">{item.icon}</div>
                     <div>
                       <h4 className="font-bold text-slate-900 dark:text-white">{item.title}</h4>
@@ -218,10 +240,10 @@ const SanjeeviniPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
-              { val: "+21%", label: "Immune Function", desc: "Enhanced baseline cellular response" },
+              { val: "+21%", label: "Immune Resilience", desc: "Enhanced baseline cellular response" },
               { val: "+16%", label: "Muscle Strength", desc: "Improved biological age vs chronological" },
               { val: "+23%", label: "Cognitive Performance", desc: "Focus and neuro-plasticity metrics" },
-              { val: "+28%", label: "System Adherence", desc: "Engagement with clinical outcomes" }
+              { val: "+28%", label: "Digital Adherence", desc: "Engagement with clinical outcomes" }
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <motion.div 
