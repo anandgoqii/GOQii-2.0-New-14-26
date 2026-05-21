@@ -1,5 +1,6 @@
 {
   "name": "GOQii 2.0 New",
-  "description": "A highly interactive visualization of GOQii\u0027s ALIVE O.S. pillars, featuring interconnected nodes and real-time biological optimization data.",
-  "requestFramePermissions": []
+  "description": "A highly interactive visualization of GOQii's ALIVE O.S. pillars, featuring interconnected nodes and real-time biological optimization data.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
