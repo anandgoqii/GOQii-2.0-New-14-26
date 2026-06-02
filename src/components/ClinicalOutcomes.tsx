@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { LineChart, BarChart3, Activity, Heart, Calendar, CheckSquare, Sparkles } from 'lucide-react';
+import { LineChart, BarChart3, Activity, Heart, Calendar, CheckSquare, Sparkles, Moon } from 'lucide-react';
 
 interface MetricCohortAnalysis {
   id: string;
@@ -76,6 +76,21 @@ const ANALYTICAL_METRICS: MetricCohortAnalysis[] = [
     ]
   }
 ];
+
+const getIconForMetric = (id: string) => {
+  switch (id) {
+    case 'adherence':
+      return <CheckSquare className="w-4 h-4" />;
+    case 'engagement':
+      return <Sparkles className="w-4 h-4" />;
+    case 'reversal':
+      return <Heart className="w-4 h-4" />;
+    case 'circadian':
+      return <Moon className="w-4 h-4" />;
+    default:
+      return <Activity className="w-4 h-4" />;
+  }
+};
 
 export const ClinicalOutcomes = () => {
   const [activeMetricId, setActiveMetricId] = useState<string>('reversal');
@@ -276,7 +291,7 @@ export const ClinicalOutcomes = () => {
                   <div className={`p-2.5 rounded-xl transition-all ${
                     isActive ? 'bg-emerald-500/10 text-emerald-600' : 'bg-slate-100 dark:bg-slate-950/60 text-slate-400'
                   }`}>
-                    <Activity className="w-4 h-4" />
+                    {getIconForMetric(metric.id)}
                   </div>
 
                   <div className="flex-1 min-w-0">

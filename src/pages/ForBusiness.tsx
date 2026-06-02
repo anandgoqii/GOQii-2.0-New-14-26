@@ -222,7 +222,7 @@ export const ForBusiness = () => {
               Our platform is built to deliver hard clinical and financial outcomes for our partners.
             </p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { label: "Reduce claims / costs", value: "-15%", icon: TrendingDown },
               { label: "Improve adherence", value: "+28%", icon: HeartPulse },

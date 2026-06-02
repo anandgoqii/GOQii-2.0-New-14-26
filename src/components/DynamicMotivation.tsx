@@ -12,10 +12,10 @@ export const DynamicMotivation = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display mb-6 tracking-tight">
-              Turning Insights into Action
+            <h2 className="text-4xl md:text-5xl font-display font-medium text-slate-900 dark:text-white tracking-[-0.03em] leading-tight mb-6">
+              Turning Insights into <span className="text-emerald-500 dark:text-emerald-400 font-light italic">Action</span>
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-8 max-w-xl font-normal leading-relaxed">
               GOQii is not just a tracking platform.<br />
               <span className="font-semibold text-primary">It is a behavior change system.</span>
             </p>

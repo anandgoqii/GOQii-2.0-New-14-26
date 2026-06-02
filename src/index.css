@@ -22,6 +22,16 @@
   --color-dark-card: #111827;
   
   --color-border-base: #E2E8F0;
+
+  --text-xl: 0.875rem;
+  --text-2xl: 1.05rem;
+  --text-3xl: 1.3125rem;
+  --text-4xl: 1.575rem;
+  --text-5xl: 2.1rem;
+  --text-6xl: 2.625rem;
+  --text-7xl: 3.15rem;
+  --text-8xl: 4.2rem;
+  --text-9xl: 5.6rem;
 }
 
 /* Enable class-based dark mode for Tailwind 4 utilities */
@@ -80,17 +90,17 @@
   }
 
   h1 {
-    @apply text-[36px] md:text-[48px] font-semibold leading-[1.2] mb-6;
+    @apply text-[25px] md:text-[34px] font-semibold leading-[1.2] mb-6;
     color: var(--text-primary);
   }
 
   h2 {
-    @apply text-[24px] md:text-[28px] font-semibold mb-4;
+    @apply text-[17px] md:text-[20px] font-semibold mb-4;
     color: var(--text-primary);
   }
 
   h3 {
-    @apply text-[18px] md:text-[20px] font-medium mb-3;
+    @apply text-[13px] md:text-[14px] font-medium mb-3;
     color: var(--text-primary);
   }
 
@@ -109,7 +119,7 @@
   }
 
   .hero-title {
-    @apply text-[42px] md:text-[52px] font-semibold leading-[1.1] mb-6;
+    @apply text-[29px] md:text-[36px] font-semibold leading-[1.1] mb-6;
   }
 
   .hero-subtext {

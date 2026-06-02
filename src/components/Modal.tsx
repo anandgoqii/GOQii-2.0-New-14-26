@@ -25,23 +25,25 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title, 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="popup-wrapper">
+        <div key="modal-overlay-wrapper" className="fixed inset-0 flex items-center justify-center z-[120] p-4">
           {/* Backdrop */}
           <motion.div
+            key="modal-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="popup-overlay"
+            className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm cursor-pointer"
           />
 
           {/* Modal Content */}
           <motion.div
+            key="modal-content"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className={`popup-container w-full ${maxWidth} max-h-[90vh] flex flex-col`}
+            className={`popup-container w-full ${maxWidth} max-h-[90vh] flex flex-col relative z-10`}
           >
             {/* Header */}
             <div className="flex items-center justify-between px-8 py-6 border-b border-black/5 dark:border-white/5 shrink-0">

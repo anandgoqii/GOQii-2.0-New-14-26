@@ -114,7 +114,6 @@ export const Footer = () => {
         <div className="pt-12 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 opacity-40 text-sm">
           <p>© 2026 GOQii Inc. All rights reserved.</p>
           <div className="flex items-center gap-8">
-            <a href="#" className="hover:text-primary transition-colors">Do Not Sell My Info</a>
             <a href="#" className="hover:text-slate-900 dark:text-white transition-colors">Cookie Settings</a>
           </div>
         </div>

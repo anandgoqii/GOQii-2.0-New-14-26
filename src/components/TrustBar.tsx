@@ -29,7 +29,7 @@ export const TrustBar = () => {
             </div>
           </div>
 
-          <span className="h-3 w-px bg-slate-200 dark:bg-white/10" />
+          <span className="hidden sm:inline h-3 w-px bg-slate-200 dark:bg-white/10" />
 
           {/* SOC 2 Type II */}
           <div className="flex items-center gap-1.5 transition-opacity duration-300 hover:text-slate-900 dark:hover:text-white cursor-default">
@@ -37,7 +37,7 @@ export const TrustBar = () => {
             <span className="text-[11px] tracking-wider uppercase font-mono text-slate-600 dark:text-slate-300">SOC 2 Type II</span>
           </div>
 
-          <span className="h-3 w-px bg-slate-200 dark:bg-white/10" />
+          <span className="hidden sm:inline h-3 w-px bg-slate-200 dark:bg-white/10" />
 
           {/* HIPAA Ready */}
           <div className="flex items-center gap-1.5 transition-opacity duration-300 hover:text-slate-900 dark:hover:text-white cursor-default">
@@ -45,7 +45,7 @@ export const TrustBar = () => {
             <span className="text-[11px] tracking-wider uppercase font-mono text-slate-600 dark:text-slate-300">HIPAA Ready</span>
           </div>
 
-          <span className="h-3 w-px bg-slate-200 dark:bg-white/10" />
+          <span className="hidden sm:inline h-3 w-px bg-slate-200 dark:bg-white/10" />
 
           {/* GDPR Compliant */}
           <div className="flex items-center gap-1.5 transition-opacity duration-300 hover:text-slate-900 dark:hover:text-white cursor-default">

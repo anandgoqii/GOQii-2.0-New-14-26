@@ -31,7 +31,7 @@ export const Team = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {TEAM.map((member, idx) => (
             <motion.div
               key={idx}

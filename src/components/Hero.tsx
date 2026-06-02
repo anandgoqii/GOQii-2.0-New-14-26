@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useModals } from '../context/ModalContext';
 
-import { TrustBar } from './TrustBar';
-
 const AUDIENCES = ['Insurance', 'Pharma', 'Hospitals', 'Corporate', 'Individuals'];
 
 const AUDIENCE_LINKS: Record<string, string> = {
@@ -116,7 +114,7 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
 
   return (
     <section 
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden w-full bg-white dark:bg-slate-950 transition-colors duration-500 pt-20 md:pt-0"
+      className="relative min-h-screen flex flex-col justify-between md:justify-center overflow-hidden w-full bg-white dark:bg-slate-950 transition-colors duration-500 pt-24 pb-8 md:pt-0 md:pb-0"
     >
       {/* Background Images with Crossfade */}
       <div className="absolute inset-0 z-0 bg-slate-100 dark:bg-slate-900">
@@ -177,8 +175,8 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
 
                 <h1 className={`hero-slide__headline hero-title font-display tracking-tighter leading-tight text-slate-900 dark:text-white ${
                   isMobile 
-                    ? 'text-[34px] font-semibold leading-[1.1] tracking-[-0.5px]' 
-                    : 'text-[42px] sm:text-[42px] md:text-[52px]'
+                    ? 'text-[24px] font-semibold leading-[1.1] tracking-[-0.5px]' 
+                    : 'text-[29px] sm:text-[29px] md:text-[36px]'
                 }`}>
                   {slide.title}
                 </h1>
@@ -304,14 +302,9 @@ export const Hero = ({ onPathSelect }: { onPathSelect?: (path: 'org' | 'ind') =>
         </div>
       </div>
 
-      {/* Trust Bar Integration */}
-      <div className="absolute bottom-16 md:bottom-24 left-0 w-full z-20">
-        <TrustBar />
-      </div>
-
       {/* Navigation Controls */}
-      <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4 md:gap-8">
-        <div className="flex items-center gap-2 md:gap-3">
+      <div className="md:absolute relative mt-6 md:mt-0 md:bottom-12 md:left-1/2 md:-translate-x-1/2 z-20 flex items-center justify-center gap-4 md:gap-8">
+        <div className="flex items-center justify-center gap-2 md:gap-3">
           {SLIDES.map((_, idx) => (
             <button
               key={idx}

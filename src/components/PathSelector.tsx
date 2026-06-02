@@ -24,15 +24,15 @@ export const PathSelector: React.FC<PathSelectorProps> = ({ activePath, onPathCh
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-8"
+          className="mb-12"
         >
-          <h2 className="font-display text-slate-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-slate-900 dark:text-white tracking-[-0.03em] leading-tight mb-4">
             A system that moves from <br className="hidden md:block" />
-            <span className="gradient-text">reaction to prevention.</span>
+            <span className="text-emerald-500 dark:text-emerald-400 font-light italic">reaction to prevention.</span>
           </h2>
-          <h3 className="text-slate-600 dark:text-slate-400">
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-normal leading-relaxed">
             Choose how you want to experience GOQii
-          </h3>
+          </p>
         </motion.div>
         
         {/* INTERACTIVE SELECTOR */}

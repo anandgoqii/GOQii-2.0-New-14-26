@@ -110,10 +110,16 @@ export const Industries = () => {
       <div className={`${isMobile ? 'relative' : 'sticky top-0 h-screen overflow-hidden'} flex flex-col pt-12 md:pt-20`}>
         
         {/* Header */}
-        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 mb-4 md:mb-6 shrink-0">
-          <p className="text-[10px] md:text-sm text-primary font-bold tracking-[0.3em] uppercase mb-4">Industry Ecosystems</p>
-          <h2 className="text-2xl md:text-4xl font-display text-slate-900 dark:text-white leading-tight">One Platform. Multiple Healthcare Ecosystems.</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2 max-w-2xl text-sm md:text-base">GOQii adapts to the needs of every stakeholder in the healthcare value chain.</p>
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 mb-6 md:mb-8 shrink-0">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] tracking-[0.2em] uppercase mb-4">
+            Industry Ecosystems
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-slate-900 dark:text-white tracking-[-0.03em] leading-tight mb-4">
+            One Platform. Multiple <span className="text-emerald-500 dark:text-emerald-400 font-light italic">Healthcare Ecosystems</span>.
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl font-normal leading-relaxed">
+            GOQii adapts to the needs of every stakeholder in the healthcare value chain.
+          </p>
         </div>
 
         {/* Track */}

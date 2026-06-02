@@ -30,24 +30,24 @@ export const Sanjeevini = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center mb-16 flex flex-col items-center"
         >
-          <span className="px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-[0.2em] uppercase inline-block mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] tracking-[0.2em] uppercase mb-4">
             GOQii Sanjeevini
-          </span>
-          <h2 className="font-display font-bold mb-6 tracking-tight text-4xl md:text-5xl">
-            AI-Powered Longevity &<br /> Preventive Health Intelligence
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-slate-900 dark:text-white tracking-[-0.03em] leading-tight mb-4">
+            AI-Powered <span className="text-emerald-500 dark:text-emerald-400 font-light italic">Longevity & Intelligence</span>
           </h2>
-          <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed mb-8 text-lg">
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-normal leading-relaxed mb-8">
             Combining genomics, digital twins, and continuous coaching to deliver measurable health improvements.
           </p>
           
-          <div className="flex flex-wrap justify-center gap-6 mb-12">
-            <div className="flex items-center gap-3 px-6 py-3 bg-slate-100 dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10">
-              <ShieldCheck className="w-5 h-5 text-primary" />
-              <span className="text-sm font-bold tracking-tight">XPRIZE Healthspan Semifinalist</span>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex items-center gap-3 px-4 sm:px-6 py-3 bg-slate-100 dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 max-w-full">
+              <ShieldCheck className="w-5 h-5 text-primary shrink-0" />
+              <span className="text-xs sm:text-sm font-bold tracking-tight text-center">XPRIZE Healthspan Semifinalist</span>
             </div>
-            <div className="flex items-center gap-3 px-6 py-3 bg-slate-100 dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10">
-              <Globe className="w-5 h-5 text-primary" />
-              <span className="text-sm font-bold tracking-tight">In collaboration with IIT Bombay • Tata 1mg • Decode Age</span>
+            <div className="flex items-center gap-3 px-4 sm:px-6 py-3 bg-slate-100 dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10 max-w-full">
+              <Globe className="w-5 h-5 text-primary shrink-0" />
+              <span className="text-xs sm:text-sm font-bold tracking-tight text-center">In collaboration with IIT Bombay • Tata 1mg • Decode Age</span>
             </div>
           </div>
         </motion.div>

@@ -56,9 +56,13 @@ export const CaseStudies = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <p className="text-[10px] md:text-sm font-bold tracking-[0.3em] uppercase text-primary mb-4 max-w-none mx-auto">Evidence of Impact</p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight text-slate-900 dark:text-white">Real Case Studies, Real Results</h2>
-          <p className="opacity-70 max-w-3xl mx-auto font-light leading-relaxed text-lg">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] tracking-[0.2em] uppercase mb-4">
+            Evidence of Impact
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-slate-900 dark:text-white tracking-[-0.03em] leading-tight mb-4">
+            Real Case Studies, <span className="text-emerald-500 dark:text-emerald-400 font-light italic">Real Results</span>
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-normal leading-relaxed">
             From improving chronic disease management to scaling public health initiatives, our dynamic motivation model delivers measurable clinical outcomes today.
           </p>
         </motion.div>

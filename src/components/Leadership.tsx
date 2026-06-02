@@ -637,19 +637,20 @@ export const Leadership = () => {
       {/* Modal for Leader Bio */}
       <AnimatePresence>
         {selectedLeader && (
-          <>
+          <div key="leader-modal-wrapper" className="fixed inset-0 flex items-center justify-center z-[120] p-4">
             <motion.div
+              key="leader-modal-backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedLeader(null)}
-              className="popup-overlay"
+              className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm cursor-pointer"
             />
-            <div className="popup-wrapper">
-              <motion.div
-                layoutId={`card-${selectedLeader.name}`}
-                className="popup-container w-full max-w-lg p-6 md:p-7 bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl relative flex flex-col border border-slate-200 dark:border-slate-800 mx-4"
-              >
+            <motion.div
+              key="leader-modal-content"
+              layoutId={`card-${selectedLeader.name}`}
+              className="popup-container w-full max-w-lg p-6 md:p-7 bg-white dark:bg-slate-900 rounded-[2rem] shadow-2xl relative flex flex-col border border-slate-200 dark:border-slate-800 mx-4 z-10"
+            >
                 <button 
                   onClick={() => setSelectedLeader(null)}
                   className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors z-50 border border-slate-200 dark:border-white/10"
@@ -721,8 +722,7 @@ export const Leadership = () => {
                   </div>
                 </div>
               </motion.div>
-            </div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </section>

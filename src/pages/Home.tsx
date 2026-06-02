@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { Hero } from '../components/Hero';
-import { TrustBar } from '../components/TrustBar';
 import { TheShift } from '../components/TheShift';
 import { PathSelector } from '../components/PathSelector';
 import { AliveOS } from '../components/AliveOS';
@@ -205,9 +204,6 @@ export const Home = () => {
             </div>
             <div id="healthengage" className="snap-section">
               <HealthEngage />
-            </div>
-            <div id="clinical-outcomes" className="snap-section">
-              <ClinicalOutcomes />
             </div>
             <div id="app" className="snap-section">
               <AppEcosystem />

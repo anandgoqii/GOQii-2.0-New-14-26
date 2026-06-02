@@ -33,7 +33,7 @@ const SanjeeviniPage = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl sm:text-7xl md:text-[8rem] font-display font-bold tracking-tighter mb-8 text-slate-900 dark:text-white leading-[0.9]"
+            className="text-5xl sm:text-7xl md:text-[5.6rem] font-display font-bold tracking-tighter mb-8 text-slate-900 dark:text-white leading-[0.9]"
           >
             Sanjeevini
           </motion.h1>

@@ -20,8 +20,10 @@ export const Partners = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Trusted By Leading Organizations</h2>
-          <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-light">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-slate-900 dark:text-white tracking-[-0.03em] leading-tight mb-4">
+            Trusted By Leading <span className="text-emerald-500 dark:text-emerald-400 font-light italic">Organizations</span>
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-normal leading-relaxed">
             We partner with global leaders across insurance, pharma, and enterprise sectors to scale preventive healthcare.
           </p>
         </motion.div>
