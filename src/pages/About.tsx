@@ -1,35 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight, Globe, Activity, Heart, ShieldCheck, Users, MapPin, Target } from 'lucide-react';
 import { Leadership } from '../components/Leadership';
 import { Recognition } from '../components/Recognition';
 import { Partners } from '../components/Partners';
 import { FinalCTA } from '../components/FinalCTA';
+import { GlobalPresenceMap } from '../components/GlobalPresenceMap';
 
 export const About = () => {
-  const LOCATIONS = [
-    {
-      country: "United States",
-      company: "GOQii Inc",
-      address: "120, Wood Avenue South, Suite 300,\nIselin, NJ 08830",
-      query: "120 Wood Ave S #300, Iselin, NJ 08830, USA"
-    },
-    {
-      country: "United Kingdom",
-      company: "GOQii UK Limited",
-      address: "29 West Way, Hove,\nEngland, BN3 8LS",
-      query: "29 West Way, Hove BN3 8LS, UK"
-    },
-    {
-      country: "India",
-      company: "GOQii Technologies Pvt. Ltd.",
-      address: "101 Satyam Tower, Govandi East,\nMumbai 400088, India",
-      query: "Satyam Tower, Govandi East, Mumbai, Maharashtra 400088, India"
-    }
-  ];
-
-  const [activeMapQuery, setActiveMapQuery] = useState(LOCATIONS[0].query);
-
   return (
     <main className="relative pb-20 bg-[var(--bg-primary)] transition-colors duration-300 overflow-hidden">
       
@@ -220,52 +198,7 @@ export const About = () => {
             <h2 className="font-display font-bold text-slate-900 dark:text-white mb-6">Built in Silicon Valley. Scaled Globally.</h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              {LOCATIONS.map((loc, idx) => {
-                const isActive = activeMapQuery === loc.query;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    onClick={() => setActiveMapQuery(loc.query)}
-                    className={`p-6 md:p-8 rounded-3xl border transition-all cursor-pointer ${
-                      isActive 
-                        ? 'bg-white dark:bg-slate-800 border-primary shadow-xl shadow-primary/10 -translate-y-1' 
-                        : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 hover:-translate-y-1 hover:border-primary/50'
-                    }`}
-                  >
-                    <h4 className={`text-xl md:text-2xl font-bold mb-3 ${isActive ? 'text-primary' : 'text-slate-900 dark:text-white'}`}>
-                      {loc.country}
-                    </h4>
-                    <p className="text-slate-600 dark:text-slate-300 font-bold mb-3 text-sm md:text-base">{loc.company}</p>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed whitespace-pre-line">{loc.address}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="lg:col-span-7 h-[400px] lg:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 sticky top-24"
-            >
-              <iframe 
-                src={`https://www.google.com/maps?q=${encodeURIComponent(activeMapQuery)}&output=embed`}
-                width="100%" 
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="GOQii Global Locations"
-              />
-            </motion.div>
-          </div>
+          <GlobalPresenceMap />
         </div>
       </section>
 
